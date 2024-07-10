@@ -1,0 +1,33 @@
+.container {
+  width: 128rem;
+  padding: 0 4rem;
+  margin: 0 auto;
+}
+
+.light-xl {
+  color: $color-light-xl;
+}
+
+.dark-s {
+  color: $color-dark-s;
+}
+
+.flex {
+  @extend %flex;
+}
+
+.flex-col {
+  @extend %flex-col;
+}
+
+.flex__center {
+  @extend %flex-center;
+}
+
+.align-self__start {
+  align-self: start;
+}
+
+.text-align-center {
+  text-align: center;
+}

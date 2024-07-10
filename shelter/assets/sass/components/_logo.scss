@@ -1,0 +1,24 @@
+.logo:link,
+.logo:visited {
+  text-decoration: none;
+  min-width: 18.4rem;
+  height: 6rem;
+  @extend %flex-col;
+  justify-content: space-between;
+
+}
+
+.logo__title {
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 0.192rem;
+  color: $color-primary;
+}
+
+.logo__subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 1.3rem;
+  padding-left: 0.4rem;
+  letter-spacing: 0.13rem;
+  color: $color-light-xl;
+}

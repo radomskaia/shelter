@@ -1,0 +1,16 @@
+.card-item {
+  width: 27rem;
+  height: 43.5rem;
+  background-color: $color-light-s;
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+
+.card_img {
+  width: 27rem;
+  height: 27rem;
+}
+
+.card-item:hover {
+  box-shadow: 0 0.2rem 3.2rem 1.4rem rgba(#0D0D0D0A, 0.04);
+}
