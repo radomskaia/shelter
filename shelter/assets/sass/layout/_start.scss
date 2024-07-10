@@ -1,0 +1,17 @@
+.start-box {
+  width: 46rem;
+  height: 32.2rem;
+  @extend %flex-col;
+  justify-content: space-between;
+  align-self: center;
+  transform: translateY(-4rem);
+}
+
+.start-box__header {
+  width: 32.2rem;
+  transform: translateY(0.1rem);
+}
+
+.start-img {
+  margin-left: auto;
+}
