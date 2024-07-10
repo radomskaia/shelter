@@ -1,0 +1,25 @@
+.pets-box {
+  @extend %flex-col;
+  @extend %flex-center;
+  gap: 5.99rem;
+}
+
+.card-box {
+  gap: 5.3rem;
+}
+
+.cards-list {
+  @extend %flex;
+  gap: 9rem;
+}
+
+.card-item {
+  @extend %flex-col;
+  align-items: center;
+  gap: 3rem;
+}
+
+.pets-header {
+  display: inline-block;
+  transform: translateX(1px) translateY(-0.09px);
+}

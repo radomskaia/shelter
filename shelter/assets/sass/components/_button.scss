@@ -66,6 +66,7 @@
   color: $color-dark-s;
 }
 
+.nav_link,
 .nav_link:link,
 .nav_link:visited {
   font-family: Arial, sans-serif;
@@ -76,11 +77,12 @@
   transition: all .2s;
 }
 
-.nav_link:active,
-.nav_link:focus {
+.nav_link,
+.nav_link:active {
   border-bottom: 3px solid $color-primary;
 }
 
+.nav_link__dark,
 .nav_link__dark:link,
 .nav_link__dark:visited,
 .nav_link__dark:active, {
@@ -92,6 +94,7 @@
   color: $color-dark-3xl;
 }
 
+.nav_link__light,
 .nav_link__light:link,
 .nav_link__light:visited {
   color: $color-dark-s;
