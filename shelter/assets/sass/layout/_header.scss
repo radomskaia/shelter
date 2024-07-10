@@ -1,0 +1,10 @@
+.header-box {
+  @extend %flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  @extend %flex;
+  gap: 3.6rem;
+}

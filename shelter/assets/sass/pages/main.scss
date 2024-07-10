@@ -1,0 +1,59 @@
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
+
+@import "../base/base";
+@import "../base/typography";
+@import "../base/utilities";
+
+@import "../components/button";
+@import "../components/card";
+@import "../components/logo";
+
+@import "../layout/header";
+@import "../layout/start";
+@import "../layout/about";
+@import "../layout/our_pets";
+@import "../layout/help";
+@import "../layout/donation";
+@import "../layout/footer";
+
+
+.header-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 999;
+}
+
+.start-section {
+  position: relative;
+  background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, $start-screen-gradient-bg, #211F20 55%);
+  @extend %flex;
+  align-items: end;
+}
+
+.start-section .container {
+  padding-top: 6rem;
+}
+
+.header-section {
+  height: 11.95rem;
+}
+
+.about-section,
+.our_pets-section,
+.help-section,
+.donation-section {
+  padding: 8rem 0 10rem 0;
+}
+
+.our_pets-section {
+  background-color: $color-light-l;
+}
+
+.donation-section {
+  background-color: $color-light-l;
+}
+
