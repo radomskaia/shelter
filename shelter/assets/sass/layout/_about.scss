@@ -1,0 +1,17 @@
+.about-box {
+  @extend %flex;
+  @extend %flex-center;
+  gap: 12rem;
+}
+
+.about-text {
+  width: 43rem;
+  height: 38rem;
+  @extend %flex-col;
+  justify-content: space-between;
+}
+
+.about-header {
+  width: 37rem;
+  transform: translateY(0.1rem) translateX(-0.01rem);
+}
