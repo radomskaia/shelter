@@ -17,24 +17,21 @@
   transition: all .2s;
 }
 
-.button_primary:hover,
-.button_primary:active {
-  background-color: $color-primary-light;
-  box-shadow: inset 0 0 0 2px $color-primary-light;
-}
-
 .button_secondary:link,
 .button_secondary:visited {
   box-shadow: inset 0 0 0 2px $color-primary;
   transition: all .2s;
 }
 
+.button_primary:hover,
+.button_primary:active,
 .button_secondary:hover,
 .button_secondary:active {
   background-color: $color-primary-light;
   box-shadow: inset 0 0 0 2px $color-primary-light;
 }
 
+.btn_circle,
 .btn_circle:link,
 .btn_circle:visited {
   @extend %flex;
@@ -42,12 +39,23 @@
   width: 5.2rem;
   height: 5.2rem;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 2px $color-primary;
+
   transition: all .2s;
   font-size: 1.7rem;
-  color: $color-dark-3xl;
+
   letter-spacing: 0.102rem;
   text-align: center;
+}
+
+.btn_circle:link,
+.btn_circle:visited {
+  box-shadow: inset 0 0 0 2px $color-primary;
+  color: $color-dark-3xl;
+}
+
+.btn_circle {
+  box-shadow: inset 0 0 0 2px $color-dark-s;
+  color: $color-dark-s;
 }
 
 .btn_circle:hover {

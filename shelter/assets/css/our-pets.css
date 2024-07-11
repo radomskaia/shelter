@@ -1,6 +1,6 @@
-@import "../abstracts/mixins";
-@import "../abstracts/placeholders";
-@import "../abstracts/variables";
+.pagination {
+  display: flex;
+}
 
 .cards-list.pets-page {
   display: grid;
@@ -10,6 +10,7 @@
 }
 
 .pagination {
-  @extend %flex;
   gap: 2rem;
 }
+
+/*# sourceMappingURL=our-pets.css.map */

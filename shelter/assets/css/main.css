@@ -4,7 +4,8 @@
   flex-direction: column;
 }
 
-.start-section, .footer-contacts, .footer-list, .credit-card, .help-list, .cards-list, .about-box, .nav, .header-box, .btn_circle,
+.start-section, .footer-contacts, .footer-list, .credit-card:link,
+.credit-card:visited, .help-list, .cards-list, .about-box, .nav, .header-box, .btn_circle,
 .btn_circle:link,
 .btn_circle:visited, .flex {
   display: flex;
@@ -403,12 +404,19 @@ body {
   gap: 2rem;
 }
 
-.credit-card {
+.credit-card:link,
+.credit-card:visited {
   align-items: center;
   gap: 1.5rem;
   border-radius: 0.9rem;
   background-color: #F1CDB3;
   padding: 1rem 1.5rem;
+  transition: all 0.2s;
+}
+
+.credit-card:hover,
+.credit-card:active {
+  filter: brightness(90%);
 }
 
 .footer {

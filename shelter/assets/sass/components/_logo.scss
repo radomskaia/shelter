@@ -4,6 +4,7 @@
   height: 6rem;
   @extend %flex-col;
   justify-content: space-between;
+  transition: all 0.4s;
 
 }
 
@@ -38,4 +39,10 @@
   .logo__subtitle {
     color: $color-dark-3xl;
   }
+}
+
+.logo:hover,
+.logo:active {
+  transform: scale(1.05);
+  filter: brightness(80%);
 }
