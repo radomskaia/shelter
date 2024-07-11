@@ -1,0 +1,26 @@
+.help-box {
+  @extend %flex-col;
+  @extend %flex-center;
+  gap: 5.99rem;
+  @extend %text-align;
+}
+
+.help-list {
+  list-style: none;
+  @extend %flex;
+  @extend %flex-center;
+  flex-wrap: wrap;
+  gap: 11.95rem;
+  row-gap: 5.3rem;
+}
+
+.help-item {
+  @extend %flex-col;
+  @extend %flex-center;
+  gap: 3rem;
+}
+
+.help-icon {
+  width: 6rem;
+  height: 6rem;
+}
