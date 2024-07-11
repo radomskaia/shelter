@@ -1,0 +1,50 @@
+.footer {
+  height: 35rem;
+  background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, $start-footer-gradient-bg, $end-footer-gradient-bg, #211F20 70% 100%);
+  color: $color-primary;
+}
+
+.footer-list {
+  @extend %flex;
+  gap: 14rem;
+  list-style: none;
+  padding-top: 4rem;
+}
+
+.footer-item {
+  @extend %flex-col;
+  width: 30rem;
+
+}
+
+.footer-item:nth-child(1) {
+  gap: 3.7555rem;
+}
+
+.footer-item:nth-child(2) {
+    gap: 3.2rem;
+}
+
+.footer-item:not(:last-child) {
+  padding-top: 1.6rem;
+}
+
+.footer-item:last-child {
+  margin-left: auto;
+}
+
+.footer-icon {
+  height: 3.2rem;
+  width: auto;
+}
+
+.footer-contacts {
+  @extend %flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.2s;
+}
+
+.footer-contacts:hover {
+  filter: brightness(120%);
+}
