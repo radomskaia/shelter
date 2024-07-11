@@ -1,0 +1,22 @@
+.donation {
+  gap: 3.1rem;
+}
+
+.donation_img {
+  margin: 1.1rem 0;
+}
+
+.donation_text-box {
+  @extend %flex-col;
+  width: 38rem;
+  gap: 2rem;
+}
+
+.credit-card {
+  @extend %flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0.9rem;
+  background-color: $color-primary;
+  padding: 1rem 1.5rem;
+}
