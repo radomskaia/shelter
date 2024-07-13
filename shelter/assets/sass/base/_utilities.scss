@@ -1,8 +1,17 @@
+@import "../abstracts/mixins";
+
 .container {
   width: 128rem;
   padding: 0 4rem;
   margin: 0 auto;
+
+  @include respond(tab-land) {
+    width: 100vw;
+    padding: 0 3rem;
+  }
 }
+
+
 
 .light-xl {
   color: $color-light-xl;
@@ -30,6 +39,10 @@
 
 .align-self__start {
   align-self: start;
+
+    @include respond(tab-land) {
+    align-self: center;
+  }
 }
 
 .text-align-center {

@@ -15,3 +15,16 @@
 .start-img {
   margin-left: auto;
 }
+
+@include respond(tab-land) {
+  .start-box {
+    margin: 0 auto;
+    transform: translateY(0);
+  }
+
+  .start-img {
+    width: 80.37%;
+    height: auto;
+  }
+
+}

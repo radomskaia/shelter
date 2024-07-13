@@ -29,13 +29,23 @@
 
 .start-section {
   position: relative;
-  background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, $start-screen-gradient-bg, #211F20 55%);
+  background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(125deg, $start-screen-gradient-bg, #211F20 55%);
   @extend %flex;
   align-items: end;
+
+  @include respond(tab-land) {
+    background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, $start-screen-gradient-bg);
+  }
 }
 
 .start-section .container {
   padding-top: 6rem;
+
+  @include respond(tab-land) {
+    padding-top: 3rem;
+    padding-bottom: 0;
+    gap: 10rem;
+  }
 }
 
 .header-section {
