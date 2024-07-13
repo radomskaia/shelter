@@ -399,6 +399,17 @@ body {
   transform: translateX(1px) translateY(-0.09px);
 }
 
+@media only screen and (max-width: 76.0625em) {
+  .cards-list {
+    gap: 4rem;
+  }
+  .card-box {
+    gap: 1.2rem;
+  }
+  .card-item:last-child {
+    display: none;
+  }
+}
 .help-box {
   gap: 5.99rem;
 }
