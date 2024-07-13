@@ -24,3 +24,18 @@
   width: 6rem;
   height: 6rem;
 }
+
+@include respond(tab-land) {
+  .help-box {
+    gap: 5.8rem;
+  }
+}
+
+@include respond(tab-port) {
+ .help-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 6.4rem;
+    row-gap: 5.5rem;
+  }
+}

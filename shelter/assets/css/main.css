@@ -352,6 +352,7 @@ body {
     transform: translateY(0);
   }
   .start-img {
+    max-width: 69.8rem;
     width: 80.37%;
     height: auto;
   }
@@ -406,6 +407,8 @@ body {
   .card-box {
     gap: 1.2rem;
   }
+}
+@media only screen and (max-width: 67.3125em) {
   .card-item:last-child {
     display: none;
   }
@@ -430,6 +433,19 @@ body {
   height: 6rem;
 }
 
+@media only screen and (max-width: 76.0625em) {
+  .help-box {
+    gap: 5.8rem;
+  }
+}
+@media only screen and (max-width: 67.3125em) {
+  .help-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 6.4rem;
+    row-gap: 5.5rem;
+  }
+}
 .donation {
   gap: 3.1rem;
 }
