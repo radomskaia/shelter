@@ -2,10 +2,6 @@
   @extend %flex;
   @extend %flex-center;
   gap: 12rem;
-
-  @include respond(tab-land) {
-    gap: 8rem;
-  }
 }
 
 .about-text {
@@ -13,10 +9,19 @@
   height: 38rem;
   @extend %flex-col;
   justify-content: space-between;
-  order: -1;
 }
 
 .about-header {
   width: 37rem;
   transform: translateY(0.1rem) translateX(-0.01rem);
+}
+
+@include respond(tab-land) {
+  .about-box {
+    gap: 8rem;
+  }
+
+  .about-text {
+    order: -1;
+  }
 }

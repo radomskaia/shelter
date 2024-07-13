@@ -358,17 +358,11 @@ body {
 .about-box {
   gap: 12rem;
 }
-@media only screen and (max-width: 76.0625em) {
-  .about-box {
-    gap: 8rem;
-  }
-}
 
 .about-text {
   width: 43rem;
   height: 38rem;
   justify-content: space-between;
-  order: -1;
 }
 
 .about-header {
@@ -376,6 +370,14 @@ body {
   transform: translateY(0.1rem) translateX(-0.01rem);
 }
 
+@media only screen and (max-width: 76.0625em) {
+  .about-box {
+    gap: 8rem;
+  }
+  .about-text {
+    order: -1;
+  }
+}
 .pets-box {
   gap: 5.99rem;
 }
@@ -481,7 +483,7 @@ body {
   }
 }
 .footer {
-  height: 35rem;
+  min-height: 35rem;
   background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, #513D2F, #1A1A1C, #211F20 70% 100%);
   color: #F1CDB3;
 }
@@ -521,12 +523,30 @@ body {
   align-items: center;
   gap: 2rem;
   transition: all 0.2s;
+  flex-wrap: nowrap;
 }
 
 .footer-contacts:hover {
   filter: brightness(120%);
 }
 
+@media only screen and (max-width: 76.0625em) {
+  .footer-list {
+    padding-top: 1.7rem;
+    gap: 4rem;
+    justify-content: center;
+    row-gap: 6.3rem;
+  }
+  .footer-item:nth-child(1) {
+    gap: 3.65rem;
+  }
+  .footer-item:nth-child(2) {
+    gap: 3.11rem;
+  }
+  .footer-item:last-child {
+    margin: 0 auto;
+  }
+}
 .header-section {
   position: absolute;
   top: 0;
