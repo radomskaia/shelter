@@ -27,3 +27,13 @@
 .credit-card:active {
   filter: brightness(90%);
 }
+
+ @include respond(tab-port) {
+    .donation_text-box {
+      order: -1;
+  }
+
+   .donation {
+  gap: 4.8rem;
+}
+}

@@ -67,3 +67,9 @@
   background-color: $color-light-l;
 }
 
+
+ @include respond(tab-port) {
+.donation-section {
+  padding: 8rem 0 8.8rem 0;
+}
+}

@@ -39,10 +39,6 @@
 
 .align-self__start {
   align-self: start;
-
-    @include respond(tab-land) {
-    align-self: center;
-  }
 }
 
 .text-align-center {
