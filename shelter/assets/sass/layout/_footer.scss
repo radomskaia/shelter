@@ -59,16 +59,19 @@
   }
 
   .footer-item:nth-child(1) {
-  gap: 3.65rem;
-}
+    gap: 3.65rem;
+  }
 
   .footer-item:nth-child(2) {
-  gap: 3.11rem;
-}
+    gap: 3.11rem;
+  }
 
   .footer-item:last-child {
 
     margin: 0 auto;
-}
+  }
 
+  .footer2 .footer-item:nth-child(1) {
+    gap: 38px;
+  }
 }

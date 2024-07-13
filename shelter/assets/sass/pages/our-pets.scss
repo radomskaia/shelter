@@ -13,3 +13,37 @@
   @extend %flex;
   gap: 2rem;
 }
+
+@include respond(tab-land) {
+
+  .cards-list.pets-page {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-item:nth-child(7) {
+    display: none;
+  }
+
+  .card-item:nth-child(8) {
+    display: none;
+  }
+
+  .pets-box {
+    gap: 3rem;
+  }
+}
+
+@include respond(tab-port) {
+  .pets2.our_pets-section {
+    padding-bottom: 7.4rem;
+  }
+
+  .cards-list.pets-page {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pagination {
+    margin-top: 1rem;
+  }
+
+}

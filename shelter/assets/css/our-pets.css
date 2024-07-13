@@ -14,4 +14,30 @@
   gap: 2rem;
 }
 
+@media only screen and (max-width: 76.0625em) {
+  .cards-list.pets-page {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card-item:nth-child(7) {
+    display: none;
+  }
+  .card-item:nth-child(8) {
+    display: none;
+  }
+  .pets-box {
+    gap: 3rem;
+  }
+}
+@media only screen and (max-width: 67.3125em) {
+  .pets2.our_pets-section {
+    padding-bottom: 7.4rem;
+  }
+  .cards-list.pets-page {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pagination {
+    margin-top: 1rem;
+  }
+}
+
 /*# sourceMappingURL=our-pets.css.map */
