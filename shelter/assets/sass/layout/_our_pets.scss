@@ -39,3 +39,21 @@
     display: none;
   }
 }
+
+@include respond(big-phone) {
+  .card-box {
+    row-gap: 6rem;
+  }
+
+  .cards-list {
+    justify-content: center;
+  }
+
+  .card-box .btn_circle {
+    order: 2;
+  }
+
+   .card-box .btn_circle:first-child {
+    margin-right: 10rem;
+  }
+}

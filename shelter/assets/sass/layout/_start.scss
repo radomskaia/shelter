@@ -1,6 +1,6 @@
 .start-box {
   width: 46rem;
-  height: 32.2rem;
+  min-height: 32.2rem;
   @extend %flex-col;
   justify-content: space-between;
   align-self: center;
@@ -24,6 +24,7 @@
 
   .start-img {
     max-width: 69.8rem;
+    min-width: 26rem;
     width: 80.37%;
     height: auto;
   }
@@ -31,5 +32,22 @@
   .start-box .align-self__start {
     align-self: center;
   }
+}
 
+@include respond(phone) {
+  .start-box {
+    text-align: center;
+  }
+
+
+  .start-box__header {
+    max-width: 20rem;
+    margin: 0 auto;
+    transform: translateY(0);
+  }
+
+  .start-box {
+    max-width: 46rem;
+    min-height: 29.6rem;
+  }
 }
