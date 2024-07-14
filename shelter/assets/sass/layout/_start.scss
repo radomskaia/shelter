@@ -14,19 +14,16 @@
 
 .start-img {
   margin-left: auto;
+  max-width: 69.8rem;
+  min-width: 26rem;
+  width: 80.37%;
+  height: auto;
 }
 
 @include respond(tab-land) {
   .start-box {
     margin: 0 auto;
     transform: translateY(0);
-  }
-
-  .start-img {
-    max-width: 69.8rem;
-    min-width: 26rem;
-    width: 80.37%;
-    height: auto;
   }
 
   .start-box .align-self__start {

@@ -101,7 +101,7 @@ body {
   color: #B2B2B2;
 }
 
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .header_2,
   .header_3 {
     font-size: 2.5rem;
@@ -126,9 +126,10 @@ body {
     padding: 0 2rem;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .container {
     padding: 0 1rem;
+    overflow: hidden;
   }
 }
 
@@ -158,6 +159,11 @@ body {
 
 .padding_top-20 {
   padding-top: 20rem !important;
+}
+@media only screen and (max-width: 36em) {
+  .padding_top-20 {
+    padding-top: 16.15rem !important;
+  }
 }
 
 .btn:link,
@@ -297,8 +303,38 @@ body {
   transform: translateX(-14%);
 }
 
+.burger-icon_dark {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  width: 3rem;
+  height: 2px;
+  background: #000000;
+  display: none;
+}
+.burger-icon_dark:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 3rem;
+  height: 2px;
+  background: #000000;
+}
+.burger-icon_dark:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 3rem;
+  height: 2px;
+  background: #000000;
+  transform: translateX(-14%);
+}
+
 @media only screen and (max-width: 46.5em) {
   .burger-icon {
+    display: block;
+  }
+  .burger-icon_dark {
     display: block;
   }
 }
@@ -420,7 +456,7 @@ body {
     z-index: 888;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .header-box {
     padding: 0 2rem;
   }
@@ -440,6 +476,10 @@ body {
 
 .start-img {
   margin-left: auto;
+  max-width: 69.8rem;
+  min-width: 26rem;
+  width: 80.37%;
+  height: auto;
 }
 
 @media only screen and (max-width: 76.0625em) {
@@ -447,17 +487,11 @@ body {
     margin: 0 auto;
     transform: translateY(0);
   }
-  .start-img {
-    max-width: 69.8rem;
-    min-width: 26rem;
-    width: 80.37%;
-    height: auto;
-  }
   .start-box .align-self__start {
     align-self: center;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .start-box {
     text-align: center;
   }
@@ -500,7 +534,7 @@ body {
     order: -1;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .about-box {
     gap: 4rem;
   }
@@ -545,7 +579,7 @@ body {
   }
 }
 @media only screen and (max-width: 67.3125em) {
-  .card-item:last-child {
+  .card-item.page1:last-child {
     display: none;
   }
 }
@@ -563,8 +597,8 @@ body {
     margin-right: 10rem;
   }
 }
-@media only screen and (max-width: 32.5em) {
-  .card-item:nth-child(2) {
+@media only screen and (max-width: 36em) {
+  .card-item.page1:nth-child(2) {
     display: none;
   }
   .card-box {
@@ -610,7 +644,7 @@ body {
     row-gap: 5.5rem;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .help-box {
     gap: 4.2rem;
   }
@@ -676,7 +710,7 @@ body {
     height: auto;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .donation_text-box {
     align-items: center;
   }
@@ -769,10 +803,13 @@ body {
     margin: 0 auto;
   }
   .footer2 .footer-item:nth-child(1) {
-    gap: 38px;
+    gap: 3.8rem;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
+  .footer {
+    background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(to right, #513D2F, #1A1A1C);
+  }
   .footer-list {
     gap: 2.4rem;
   }
@@ -797,6 +834,12 @@ body {
   .footer-item:last-child img {
     width: 86.67%;
     height: auto;
+  }
+  .footer2 .footer-item:nth-child(1) {
+    gap: 4.1rem;
+  }
+  .footer2 .footer-list {
+    gap: 2.7rem;
   }
 }
 .header-section {
@@ -846,7 +889,7 @@ body {
     gap: 10rem;
   }
 }
-@media only screen and (max-width: 32.5em) {
+@media only screen and (max-width: 36em) {
   .start-section .container {
     gap: 10.5rem;
   }

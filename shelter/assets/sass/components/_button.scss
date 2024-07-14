@@ -146,8 +146,42 @@
   display: none;
 }
 
+.burger-icon_dark {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  width: 3rem;
+  height: 2px;
+  background: #000000;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 3rem;
+    height: 2px;
+    background: #000000;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 3rem;
+    height: 2px;
+    background: #000000;
+    transform: translateX(-14%);
+  }
+
+  display: none;
+}
+
 @include respond(big-phone) {
   .burger-icon {
+    display: block;
+  }
+
+  .burger-icon_dark {
     display: block;
   }
 }

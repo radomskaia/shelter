@@ -35,7 +35,7 @@
 }
 
 @include respond(tab-port) {
-  .card-item:last-child {
+  .card-item.page1:last-child {
     display: none;
   }
 }
@@ -59,7 +59,7 @@
 }
 
 @include respond(phone) {
-  .card-item:nth-child(2) {
+  .card-item.page1:nth-child(2) {
     display: none;
   }
 

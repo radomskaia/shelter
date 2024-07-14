@@ -16,6 +16,7 @@
 
   @include respond(phone) {
     padding: 0 1rem;
+    overflow: hidden;
   }
 }
 
@@ -58,4 +59,8 @@
 
 .padding_top-20 {
   padding-top: 20rem !important;
+
+  @include respond(phone) {
+   padding-top: 16.15rem !important
+  }
 }
