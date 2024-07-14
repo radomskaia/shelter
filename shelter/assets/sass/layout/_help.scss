@@ -32,10 +32,40 @@
 }
 
 @include respond(tab-port) {
- .help-list {
+  .help-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 6.4rem;
     row-gap: 5.5rem;
   }
+}
+
+@include respond(phone) {
+  .help-box {
+    gap: 4.2rem;
+  }
+
+  .help-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3.6rem;
+    row-gap: 3rem;
+  }
+
+  .help-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .help-item {
+    gap: 2.1rem;
+
+    & .header_4 {
+      font-size: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: 0.09rem;
+    }
+  }
+
+
 }

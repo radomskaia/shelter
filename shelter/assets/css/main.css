@@ -102,7 +102,8 @@ body {
 }
 
 @media only screen and (max-width: 32.5em) {
-  .header_2 {
+  .header_2,
+  .header_3 {
     font-size: 2.5rem;
     line-height: 1.3;
     text-align: center;
@@ -471,8 +472,8 @@ body {
 }
 
 .about-text {
-  width: 43rem;
-  height: 38rem;
+  max-width: 43rem;
+  min-height: 38rem;
   justify-content: space-between;
 }
 
@@ -481,12 +482,32 @@ body {
   transform: translateY(0.1rem) translateX(-0.01rem);
 }
 
+.about-img {
+  max-width: 30rem;
+  width: 86.67%;
+  height: auto;
+}
+
 @media only screen and (max-width: 76.0625em) {
   .about-box {
     gap: 8rem;
   }
   .about-text {
     order: -1;
+  }
+}
+@media only screen and (max-width: 32.5em) {
+  .about-box {
+    gap: 4rem;
+  }
+  .about-header {
+    max-width: 29rem;
+    transform: translateY(0) translateX(-0.9rem);
+  }
+  .about-text {
+    gap: 2.4rem;
+    width: 27rem;
+    text-align: justify;
   }
 }
 .pets-box {
@@ -538,6 +559,20 @@ body {
     margin-right: 10rem;
   }
 }
+@media only screen and (max-width: 32.5em) {
+  .card-item:nth-child(2) {
+    display: none;
+  }
+  .card-box {
+    row-gap: 2rem;
+  }
+  .pets-box {
+    gap: 4.1rem;
+  }
+  .card-box .btn_circle:first-child {
+    margin-right: 6.8rem;
+  }
+}
 .help-box {
   gap: 5.99rem;
 }
@@ -569,6 +604,29 @@ body {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 6.4rem;
     row-gap: 5.5rem;
+  }
+}
+@media only screen and (max-width: 32.5em) {
+  .help-box {
+    gap: 4.2rem;
+  }
+  .help-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3.6rem;
+    row-gap: 3rem;
+  }
+  .help-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+  .help-item {
+    gap: 2.1rem;
+  }
+  .help-item .header_4 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: 0.09rem;
   }
 }
 .donation {
@@ -732,6 +790,14 @@ body {
 @media only screen and (max-width: 32.5em) {
   .start-section .container {
     gap: 10.5rem;
+  }
+  .our_pets-section,
+  .help-section,
+  .donation-section {
+    padding: 4.2rem 0;
+  }
+  .about-section {
+    padding: 4.2rem 0;
   }
 }
 

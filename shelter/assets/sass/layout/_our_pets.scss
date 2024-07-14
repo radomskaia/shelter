@@ -53,7 +53,25 @@
     order: 2;
   }
 
-   .card-box .btn_circle:first-child {
+  .card-box .btn_circle:first-child {
     margin-right: 10rem;
+  }
+}
+
+@include respond(phone) {
+  .card-item:nth-child(2) {
+    display: none;
+  }
+
+  .card-box {
+    row-gap: 2rem;
+  }
+
+  .pets-box {
+    gap: 4.1rem;
+  }
+
+  .card-box .btn_circle:first-child {
+    margin-right: 6.8rem;
   }
 }

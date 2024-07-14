@@ -72,7 +72,17 @@
 }
 
 @include respond(phone) {
-.start-section .container {
+  .start-section .container {
     gap: 10.5rem;
+  }
+
+  .our_pets-section,
+  .help-section,
+  .donation-section {
+    padding: 4.2rem 0;
+  }
+
+  .about-section {
+    padding: 4.2rem 0;
   }
 }
