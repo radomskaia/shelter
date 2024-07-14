@@ -75,3 +75,39 @@
     gap: 38px;
   }
 }
+
+@include respond(phone) {
+  .footer-list {
+    gap: 2.4rem;
+  }
+
+  .footer-item {
+    & .header_3 {
+      width: 27rem;
+      align-self: center;
+    }
+
+    &:first-child {
+      align-items: center;
+      gap: 3.9rem;
+    }
+
+    &:nth-child(2) {
+      gap: 3.9rem;
+    }
+
+    &:not(:last-child) {
+      padding-top: 1.2rem;
+    }
+
+    &:last-child {
+      padding-top: 1.4rem;
+      transform: translateX(20px);
+
+      img {
+        width: 86.67%;
+        height: auto;
+      }
+    }
+  }
+}

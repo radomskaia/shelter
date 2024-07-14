@@ -13,6 +13,11 @@
   gap: 3.6rem;
 }
 
+
+.mobile-nav-box {
+  display: none;
+}
+
 .mobile-nav {
   display: none;
 }
@@ -30,7 +35,6 @@
     top: 0;
     right: 0;
     backdrop-filter: blur(2px);
-
     display: none;
 
     .mobile-nav {
