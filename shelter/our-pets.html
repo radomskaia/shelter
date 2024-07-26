@@ -10,8 +10,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
 
+    <!--    CSS-->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/our-pets.css">
+
+    <!--    JS-->
+    <script src="index.js"></script>
+
     <title>Cozy House</title>
 </head>
 <body>
@@ -76,11 +81,11 @@
                 </li>
             </ul>
             <div class="pagination">
-                <a class="btn_circle">&lt;&lt;</a>
-                <a class="btn_circle">&lt;</a>
-                <a href="#" class="btn_circle button_primary">1</a>
-                <a href="#" class="btn_circle">&gt;</a>
-                <a href="#" class="btn_circle">&gt;&gt;</a>
+                <a class="btn_circle btn_circle_disabled">&lt;&lt;</a>
+                <a class="btn_circle btn_circle_disabled">&lt;</a>
+                <a class="btn_circle btn_circle_active" id="btn">1</a>
+                <a href="#btn" class="btn_circle btn_circle_able">&gt;</a>
+                <a href="#btn" class="btn_circle btn_circle_able">&gt;&gt;</a>
             </div>
         </div>
     </section>
