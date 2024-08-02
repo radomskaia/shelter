@@ -55,17 +55,19 @@
   color: $color-dark-3xl;
 }
 
-.btn_circle {
+.btn_circle_disabled {
+  cursor: not-allowed;
   box-shadow: inset 0 0 0 2px $color-dark-s;
   color: $color-dark-s;
 }
 
-.btn_circle:hover {
+.btn_circle_able:hover {
   background-color: $color-primary-light;
   box-shadow: inset 0 0 0 2px $color-primary-light;
 }
 
-.btn_circle:active {
+.btn_circle_active,
+.btn_circle_able:active {
   background-color: $color-primary;
   box-shadow: inset 0 0 0 2px $color-primary;
 }
@@ -92,7 +94,6 @@
   border-bottom: 3px solid $color-primary;
 }
 
-.nav_link__dark,
 .nav_link__dark:link,
 .nav_link__dark:visited,
 .nav_link__dark:active, {
@@ -100,6 +101,7 @@
   transition: all .2s;
 }
 
+.nav_link__dark,
 .nav_link__dark:hover {
   color: $color-dark-3xl;
 }
@@ -111,6 +113,7 @@
   transition: all .2s;
 }
 
+.nav_link__light,
 .nav_link__light:hover,
 .nav_link__light:active {
   color: $color-light-s;
