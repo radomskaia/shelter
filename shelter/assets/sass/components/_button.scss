@@ -1,3 +1,5 @@
+@import "../abstracts/mixins";
+
 .btn:link,
 .btn:visited {
   display: inline-flex;
@@ -115,4 +117,74 @@
 .nav_link__light:hover,
 .nav_link__light:active {
   color: $color-light-s;
+}
+
+.burger-icon {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  width: 3rem;
+  height: 2px;
+  background: $color-primary;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 3rem;
+    height: 2px;
+    background: $color-primary;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 3rem;
+    height: 2px;
+    background: $color-primary;
+    transform: translateX(-14%);
+  }
+
+  display: none;
+}
+
+.burger-icon_dark {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  width: 3rem;
+  height: 2px;
+  background: #000000;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 3rem;
+    height: 2px;
+    background: #000000;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 3rem;
+    height: 2px;
+    background: #000000;
+    transform: translateX(-14%);
+  }
+
+  display: none;
+}
+
+@include respond(big-phone) {
+  .burger-icon {
+    display: block;
+  }
+
+  .burger-icon_dark {
+    display: block;
+  }
 }

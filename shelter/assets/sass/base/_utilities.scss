@@ -1,8 +1,28 @@
+@import "../abstracts/mixins";
+
 .container {
   width: 128rem;
   padding: 0 4rem;
   margin: 0 auto;
+
+  @include respond(desktop) {
+    width: 100vw;
+  }
+
+  @include respond(tab-land) {
+    padding: 0 3rem;
+  }
+
+  @include respond(big-phone) {
+    padding: 0 2rem;
+  }
+
+  @include respond(phone) {
+    padding: 0 1rem;
+    //overflow: hidden;
+  }
 }
+
 
 .light-xl {
   color: $color-light-xl;
@@ -37,9 +57,13 @@
 }
 
 .padding_top-12 {
-    padding-top: 12rem;
+  padding-top: 12rem;
 }
 
 .padding_top-20 {
-    padding-top: 20rem !important;
+  padding-top: 20rem !important;
+
+  @include respond(phone) {
+   padding-top: 16.15rem !important
+  }
 }
