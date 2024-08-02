@@ -51,6 +51,11 @@
     line-height: 1.28;
   }
 }
+@media only screen and (max-width: 47.9375em) {
+  .cards-list.pets-page {
+    gap: 3rem;
+  }
+}
 @media only screen and (max-width: 36em) {
   .card-item:nth-child(4) {
     display: none;

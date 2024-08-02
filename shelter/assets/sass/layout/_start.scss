@@ -1,3 +1,8 @@
+.start-section .container {
+  gap: 4.2rem;
+  flex-wrap: nowrap;
+}
+
 .start-box {
   width: 46rem;
   min-height: 32.2rem;
@@ -5,6 +10,7 @@
   justify-content: space-between;
   align-self: center;
   transform: translateY(-4rem);
+  flex-shrink: 0;
 }
 
 .start-box__header {
@@ -13,11 +19,11 @@
 }
 
 .start-img {
-  margin-left: auto;
   max-width: 69.8rem;
   min-width: 26rem;
   width: 80.37%;
   height: auto;
+  margin-left: auto;
 }
 
 @include respond(tab-land) {
@@ -30,9 +36,16 @@
     align-self: center;
   }
 }
+@include respond(tab-port) {
+  .start-section .container {
+    gap: 0;
+    flex-wrap: wrap;
+  }
+}
 
 @include respond(phone) {
   .start-box {
+    flex-shrink: 1;
     text-align: center;
   }
 

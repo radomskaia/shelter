@@ -19,6 +19,7 @@
 @import "../layout/footer";
 
 
+
 .header-section {
   position: absolute;
   top: 0;
@@ -30,7 +31,8 @@
 
 .start-section {
   position: relative;
-  background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(125deg, $start-screen-gradient-bg, #211F20 55%);
+  //background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, $start-screen-gradient-bg, $end-screen-gradient-bg 55%);
+  background: url("../img/bg_noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 70%);
   @extend %flex;
   align-items: end;
 }

@@ -43,8 +43,62 @@ a:visited {
   color: inherit;
 }
 
+@font-face {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/georgia/georgia-regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Georgia";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/georgia/georgia-italic.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/georgia/georgia-bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Georgia";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/georgia/georgia-bold-italic.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../fonts/arial/arial-regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/arial/arial-italic.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/arial/arial-bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/arial/arial-black.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/arial/arial-bold-italic.ttf") format("ttf");
+}
 body {
-  font-family: Georgia, serif;
+  font-family: "Georgia", serif;
   font-size: 1.5rem;
   font-weight: 400;
   color: #545454;
@@ -87,14 +141,14 @@ body {
 }
 
 .paragraph-l {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6;
   color: #4C4C4C;
 }
 
 .paragraph-s {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
   font-style: italic;
@@ -115,13 +169,17 @@ body {
   padding: 0 4rem;
   margin: 0 auto;
 }
-@media only screen and (max-width: 76.0625em) {
+@media only screen and (max-width: 80em) {
   .container {
     width: 100vw;
+  }
+}
+@media only screen and (max-width: 76.0625em) {
+  .container {
     padding: 0 3rem;
   }
 }
-@media only screen and (max-width: 46.5em) {
+@media only screen and (max-width: 47.9375em) {
   .container {
     padding: 0 2rem;
   }
@@ -129,7 +187,6 @@ body {
 @media only screen and (max-width: 36em) {
   .container {
     padding: 0 1rem;
-    overflow: hidden;
   }
 }
 
@@ -330,7 +387,7 @@ body {
   transform: translateX(-14%);
 }
 
-@media only screen and (max-width: 46.5em) {
+@media only screen and (max-width: 47.9375em) {
   .burger-icon {
     display: block;
   }
@@ -420,7 +477,7 @@ body {
   display: none;
 }
 
-@media only screen and (max-width: 46.5em) {
+@media only screen and (max-width: 47.9375em) {
   .nav {
     display: none;
   }
@@ -461,12 +518,18 @@ body {
     padding: 0 2rem;
   }
 }
+.start-section .container {
+  gap: 4.2rem;
+  flex-wrap: nowrap;
+}
+
 .start-box {
   width: 46rem;
   min-height: 32.2rem;
   justify-content: space-between;
   align-self: center;
   transform: translateY(-4rem);
+  flex-shrink: 0;
 }
 
 .start-box__header {
@@ -475,11 +538,11 @@ body {
 }
 
 .start-img {
-  margin-left: auto;
   max-width: 69.8rem;
   min-width: 26rem;
   width: 80.37%;
   height: auto;
+  margin-left: auto;
 }
 
 @media only screen and (max-width: 76.0625em) {
@@ -491,8 +554,15 @@ body {
     align-self: center;
   }
 }
+@media only screen and (max-width: 67.3125em) {
+  .start-section .container {
+    gap: 0;
+    flex-wrap: wrap;
+  }
+}
 @media only screen and (max-width: 36em) {
   .start-box {
+    flex-shrink: 1;
     text-align: center;
   }
   .start-box__header {
@@ -583,7 +653,7 @@ body {
     display: none;
   }
 }
-@media only screen and (max-width: 46.5em) {
+@media only screen and (max-width: 47.9375em) {
   .card-box {
     row-gap: 6rem;
   }
@@ -602,13 +672,15 @@ body {
     display: none;
   }
   .card-box {
+    width: 27rem;
+    gap: 7.8rem;
     row-gap: 2rem;
   }
   .pets-box {
     gap: 4.1rem;
   }
   .card-box .btn_circle:first-child {
-    margin-right: 6.8rem;
+    margin-right: 0;
   }
 }
 .help-box {
@@ -739,12 +811,12 @@ body {
   }
 }
 .footer {
-  min-height: 35rem;
   background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, #513D2F, #1A1A1C, #211F20 70% 100%);
   color: #F1CDB3;
 }
 
 .footer-list {
+  flex-wrap: nowrap;
   gap: 14rem;
   list-style: none;
   padding-top: 4rem;
@@ -788,6 +860,7 @@ body {
 
 @media only screen and (max-width: 76.0625em) {
   .footer-list {
+    flex-wrap: wrap;
     padding-top: 1.7rem;
     gap: 4rem;
     justify-content: center;
@@ -853,7 +926,7 @@ body {
 
 .start-section {
   position: relative;
-  background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(125deg, #5B483A, #211F20 55%);
+  background: url("../img/bg_noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 70%);
   align-items: end;
 }
 

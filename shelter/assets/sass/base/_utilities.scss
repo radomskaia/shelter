@@ -5,8 +5,11 @@
   padding: 0 4rem;
   margin: 0 auto;
 
-  @include respond(tab-land) {
+  @include respond(desktop) {
     width: 100vw;
+  }
+
+  @include respond(tab-land) {
     padding: 0 3rem;
   }
 
@@ -16,7 +19,7 @@
 
   @include respond(phone) {
     padding: 0 1rem;
-    overflow: hidden;
+    //overflow: hidden;
   }
 }
 

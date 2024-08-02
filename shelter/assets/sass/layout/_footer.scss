@@ -1,11 +1,12 @@
 .footer {
-  min-height: 35rem;
+  //min-height: 35rem;
   background-image: url("../img/bg_noise_transparent@2x.png"), linear-gradient(135deg, $start-footer-gradient-bg, $end-footer-gradient-bg, #211F20 70% 100%);
   color: $color-primary;
 }
 
 .footer-list {
   @extend %flex;
+  flex-wrap: nowrap;
   gap: 14rem;
   list-style: none;
   padding-top: 4rem;
@@ -52,6 +53,7 @@
 
 @include respond(tab-land) {
   .footer-list {
+    flex-wrap: wrap;
     padding-top: 1.7rem;
     gap: 4rem;
     justify-content: center;

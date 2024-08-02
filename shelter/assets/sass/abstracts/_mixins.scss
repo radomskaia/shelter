@@ -7,7 +7,7 @@
   }
 
    @if $breakpoint == big-phone {
-    @media only screen and (max-width: 46.5em) {
+    @media only screen and (max-width: 47.9375em) {
       @content
     }
     //767px
@@ -25,5 +25,12 @@
       @content
     }
     // 1217px
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: 80em) {
+      @content
+    }
+    // 1280px
   }
 }

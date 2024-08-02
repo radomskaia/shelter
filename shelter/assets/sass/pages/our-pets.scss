@@ -64,6 +64,12 @@
   }
 }
 
+@include respond(big-phone) {
+  .cards-list.pets-page {
+    gap: 3rem;
+  }
+}
+
 @include respond(phone) {
   .card-item:nth-child(4) {
     display: none;
@@ -93,5 +99,4 @@
   .pets2.our_pets-section {
     padding-bottom: 4.2rem;
   }
-
 }
