@@ -527,7 +527,6 @@ body {
   justify-content: space-between;
   align-self: center;
   transform: translateY(-4rem);
-  flex-shrink: 0;
 }
 
 .start-box__header {
@@ -552,10 +551,13 @@ body {
     align-self: center;
   }
 }
-@media only screen and (max-width: 67.3125em) {
+@media only screen and (max-width: 57em) {
   .start-section .container {
     gap: 0;
     flex-wrap: wrap;
+  }
+  .start-img {
+    max-width: 60rem;
   }
 }
 @media only screen and (max-width: 36em) {
@@ -596,10 +598,17 @@ body {
 
 @media only screen and (max-width: 76.0625em) {
   .about-box {
-    gap: 8rem;
+    flex-wrap: nowrap;
+    gap: 5%;
   }
   .about-text {
     order: -1;
+  }
+}
+@media only screen and (max-width: 49em) {
+  .about-box {
+    flex-wrap: wrap;
+    gap: 8rem;
   }
 }
 @media only screen and (max-width: 36em) {

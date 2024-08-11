@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-self: center;
   transform: translateY(-4rem);
-  flex-shrink: 0;
+  //flex-shrink: 0;
 }
 
 .start-box__header {
@@ -36,11 +36,14 @@
     align-self: center;
   }
 }
-@include respond(tab-port) {
+@include respond(tab-port-3) {
   .start-section .container {
     gap: 0;
     flex-wrap: wrap;
   }
+  .start-img {
+  max-width: 60rem;
+}
 }
 
 @include respond(phone) {

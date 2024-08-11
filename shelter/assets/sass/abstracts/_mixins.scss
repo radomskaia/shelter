@@ -13,6 +13,20 @@
     //767px
   }
 
+  @if $breakpoint == tab-port-2 {
+    @media only screen and (max-width: 49em) {
+      @content
+    }
+    // 784px
+  }
+
+@if $breakpoint == tab-port-3 {
+    @media only screen and (max-width: 57em) {
+      @content
+    }
+    // 916px
+  }
+
   @if $breakpoint == tab-port {
     @media only screen and (max-width: 67.3125em) {
       @content
