@@ -22,13 +22,23 @@
   height: auto;
 }
 
+
+
 @include respond(tab-land) {
   .about-box {
-    gap: 8rem;
+    flex-wrap: nowrap;
+    gap: 5%;
   }
 
   .about-text {
     order: -1;
+  }
+}
+
+@include respond(tab-port-2) {
+  .about-box {
+    flex-wrap: wrap;
+    gap: 8rem;
   }
 }
 
