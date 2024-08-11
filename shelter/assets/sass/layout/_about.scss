@@ -44,7 +44,9 @@
 
   .about-text {
     gap: 2.4rem;
-    width: 27rem;
+    //width: 27rem;
+    min-width: 27rem;
+    padding: 0 1.5rem;
     text-align: justify;
   }
 }
