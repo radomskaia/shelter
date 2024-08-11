@@ -2,33 +2,34 @@
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/georgia/georgia-regular.ttf') format('ttf');
+  src:
+          url('../fonts/georgia/georgia-regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Georgia';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/georgia/georgia-italic.ttf') format('ttf');
+  src: url('../fonts/georgia/georgia-italic.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/georgia/georgia-bold.ttf') format('ttf');
+  src: url('../fonts/georgia/georgia-bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Georgia';
   font-style: italic;
   font-weight: 700;
-  src: url('../fonts/georgia/georgia-bold-italic.ttf') format('ttf');
+  src: url('../fonts/georgia/georgia-bold-italic.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Arial';
-  src: url('../fonts/arial/arial-regular.ttf') format('ttf');
+  src: url('../fonts/arial/arial-regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -37,28 +38,28 @@
   font-family: 'Arial';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/arial/arial-italic.ttf') format('ttf');
+  src: url('../fonts/arial/arial-italic.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Arial';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/arial/arial-bold.ttf') format('ttf');
+  src: url('../fonts/arial/arial-bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Arial';
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/arial/arial-black.ttf') format('ttf');
+  src: url('../fonts/arial/arial-black.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Arial';
   font-style: italic;
   font-weight: 700;
-  src: url('../fonts/arial/arial-bold-italic.ttf') format('ttf');
+  src: url('../fonts/arial/arial-bold-italic.ttf') format('truetype');
 }
 
 body {

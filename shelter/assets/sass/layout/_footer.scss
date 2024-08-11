@@ -108,9 +108,13 @@
 
     &:last-child {
       padding-top: 1.4rem;
-      transform: translateX(20px);
+      //transform: translateX(20px);
+      //display: flex;
+      //justify-content: center;
 
       img {
+        margin: 0 auto;
+        max-height: 100%;
         width: 86.67%;
         height: auto;
       }
