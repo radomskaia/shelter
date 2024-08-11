@@ -5,12 +5,16 @@
 }
 
 .start-section, .footer-contacts, .footer-list, .credit-card:link,
-.credit-card:visited, .help-list, .cards-list, .about-box, .nav, .header-box, .btn_circle, .flex {
+.credit-card:visited, .help-list, .cards-list, .about-box, .nav, .header-box, .btn_circle,
+.btn_circle:link,
+.btn_circle:visited, .flex {
   display: flex;
   flex-wrap: wrap;
 }
 
-.help-item, .help-list, .help-box, .pets-box, .about-box, .btn_circle, .btn:link,
+.help-item, .help-list, .help-box, .pets-box, .about-box, .btn_circle,
+.btn_circle:link,
+.btn_circle:visited, .btn:link,
 .btn:visited, .flex__center {
   align-items: center;
   justify-content: center;
@@ -226,7 +230,6 @@ body {
   letter-spacing: 0.102rem;
 }
 
-.button_primary,
 .button_primary:link,
 .button_primary:visited {
   background-color: #F1CDB3;
@@ -247,7 +250,9 @@ body {
   box-shadow: inset 0 0 0 2px #FDDCC4;
 }
 
-.btn_circle {
+.btn_circle,
+.btn_circle:link,
+.btn_circle:visited {
   width: 5.2rem;
   height: 5.2rem;
   border-radius: 50%;
@@ -255,35 +260,27 @@ body {
   font-size: 1.7rem;
   letter-spacing: 0.102rem;
   text-align: center;
-  border: 2px solid #F1CDB3;
+}
+
+.btn_circle:link,
+.btn_circle:visited {
+  box-shadow: inset 0 0 0 2px #F1CDB3;
   color: #292929;
-  background-color: inherit;
+}
+
+.btn_circle {
+  box-shadow: inset 0 0 0 2px #CDCDCD;
+  color: #CDCDCD;
 }
 
 .btn_circle:hover {
   background-color: #FDDCC4;
-  border-color: #FDDCC4;
-  cursor: pointer;
+  box-shadow: inset 0 0 0 2px #FDDCC4;
 }
 
-.btn_circle-active,
-.btn_circle-active:hover {
-  cursor: auto;
-}
-
-.btn_circle-active,
-.btn_circle-active:hover,
 .btn_circle:active {
   background-color: #F1CDB3;
-  border: 2px solid #F1CDB3;
-}
-
-.btn_circle:disabled,
-.btn_circle:disabled:hover {
-  border: 2px solid #CDCDCD;
-  color: #CDCDCD;
-  background-color: inherit;
-  cursor: not-allowed;
+  box-shadow: inset 0 0 0 2px #F1CDB3;
 }
 
 .btn__left:link,
@@ -922,7 +919,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 11.95rem;
   z-index: 999;
 }
