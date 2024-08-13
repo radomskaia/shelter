@@ -5,16 +5,12 @@
 }
 
 .start-section, .footer-contacts, .footer-list, .credit-card:link,
-.credit-card:visited, .help-list, .cards-list, .about-box, .nav, .header-box, .btn_circle,
-.btn_circle:link,
-.btn_circle:visited, .flex {
+.credit-card:visited, .help-list, .cards-list, .about-box, .nav, .header-box, .btn_circle, .flex {
   display: flex;
   flex-wrap: wrap;
 }
 
-.help-item, .help-list, .help-box, .pets-box, .about-box, .btn_circle,
-.btn_circle:link,
-.btn_circle:visited, .btn:link,
+.help-item, .help-list, .help-box, .pets-box, .about-box, .btn_circle, .btn:link,
 .btn:visited, .flex__center {
   align-items: center;
   justify-content: center;
@@ -250,9 +246,7 @@ body {
   box-shadow: inset 0 0 0 2px #FDDCC4;
 }
 
-.btn_circle,
-.btn_circle:link,
-.btn_circle:visited {
+.btn_circle {
   width: 5.2rem;
   height: 5.2rem;
   border-radius: 50%;
@@ -260,27 +254,30 @@ body {
   font-size: 1.7rem;
   letter-spacing: 0.102rem;
   text-align: center;
-}
-
-.btn_circle:link,
-.btn_circle:visited {
-  box-shadow: inset 0 0 0 2px #F1CDB3;
+  border: 2px solid #F1CDB3;
   color: #292929;
-}
-
-.btn_circle {
-  box-shadow: inset 0 0 0 2px #CDCDCD;
-  color: #CDCDCD;
+  background-color: inherit;
 }
 
 .btn_circle:hover {
   background-color: #FDDCC4;
-  box-shadow: inset 0 0 0 2px #FDDCC4;
+  border: 2px solid #FDDCC4;
+  cursor: pointer;
 }
 
+.btn_circle:disabled,
+.btn_circle:disabled:hover {
+  cursor: not-allowed;
+  border: 2px solid #CDCDCD;
+  background-color: inherit;
+  color: #CDCDCD;
+}
+
+.btn_circle-active,
+.btn_circle-active:hover,
 .btn_circle:active {
   background-color: #F1CDB3;
-  box-shadow: inset 0 0 0 2px #F1CDB3;
+  border: 2px solid #F1CDB3;
 }
 
 .btn__left:link,

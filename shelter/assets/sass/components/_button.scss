@@ -33,9 +33,7 @@
   box-shadow: inset 0 0 0 2px $color-primary-light;
 }
 
-.btn_circle,
-.btn_circle:link,
-.btn_circle:visited {
+.btn_circle {
   @extend %flex;
   @extend %flex-center;
   width: 5.2rem;
@@ -47,27 +45,30 @@
 
   letter-spacing: 0.102rem;
   text-align: center;
-}
-
-.btn_circle:link,
-.btn_circle:visited {
-  box-shadow: inset 0 0 0 2px $color-primary;
+  border: 2px solid $color-primary;
   color: $color-dark-3xl;
-}
-
-.btn_circle {
-  box-shadow: inset 0 0 0 2px $color-dark-s;
-  color: $color-dark-s;
+   background-color: inherit;
 }
 
 .btn_circle:hover {
   background-color: $color-primary-light;
-  box-shadow: inset 0 0 0 2px $color-primary-light;
+  border: 2px solid $color-primary-light;
+  cursor: pointer;
 }
 
+.btn_circle:disabled,
+.btn_circle:disabled:hover {
+  cursor: not-allowed;
+  border: 2px solid  $color-dark-s;
+  background-color: inherit;
+  color: $color-dark-s;
+}
+
+.btn_circle-active,
+.btn_circle-active:hover,
 .btn_circle:active {
   background-color: $color-primary;
-  box-shadow: inset 0 0 0 2px $color-primary;
+  border: 2px solid $color-primary;
 }
 
 .btn__left:link,
