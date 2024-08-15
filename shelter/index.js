@@ -1,50 +1,78 @@
-console.log(`
-Оценка за задание 100 баллов
+/**
+ * Современный алгоритм тасования Фишера — Йетса для тасования массива a из n элементов (индексы 0..n-1):
+ *     для всех i от n − 1 до 1 выполнить:
+ *     j ← случайное число 0 ≤ j ≤ i
+ *     обменять местами a[j] и a[i]
+ *
+ * @param {*[]} arr array of your numbers
+ * @param start array shuffle start index
+ * @param end array shuffle end index
+ */
+function shuffleArray(arr, start = 0, end = arr.length) {
+    for (let i = end - 1; i > start; i--) {
+        let j = Math.round(Math.random() * (i - start)) + start;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
 
-Вёрстка страницы Main соответствует макету при ширине экрана 1280px: +14
-    блок header: +2
-    блок Not only: +2
-    блок About: +2
-    блок Our Friends: +2
-    блок Help: +2
-    блок In addition: +2
-    блок footer: +2
-Вёрстка страницы Main соответствует макету при ширине экрана 768px: +14
-    блок header: +2
-    блок Not only: +2
-    блок About: +2
-    блок Our Friends: +2
-    блок Help: +2
-    блок In addition: +2
-    блок footer: +2
-Вёрстка страницы Main соответствует макету при ширине экрана 320px: +14
-    блок header: +2
-    блок Not only: +2
-    блок About: +2
-    блок Our Friends: +2
-    блок Help: +2
-    блок In addition: +2
-    блок footer: +2
-Вёрстка страницы Pets соответствует макету при ширине экрана 1280px: +6
-    блок header: +2
-    блок Our Friends: +2
-    блок footer: +2
-Вёрстка страницы Pets соответствует макету при ширине экрана 768px: +6
-    блок header: +2
-    блок Our Friends: +2
-    блок footer: +2
-Вёрстка страницы Pets соответствует макету при ширине экрана 320px: +6
-    блок header: +2
-    блок Our Friends: +2
-    блок footer: +2
-Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, справа от отдельных блоков не появляются белые поля. Весь контент страницы при этом сохраняется: не обрезается и не удаляется: +20
-    нет полосы прокрутки при ширине страницы Main от 1280рх до 768рх: +5
-    нет полосы прокрутки при ширине страницы Main от 768рх до 320рх: +5
-    нет полосы прокрутки при ширине страницы Pets от 1280рх до 768рх: +5
-    нет полосы прокрутки при ширине страницы Pets от 768рх до 320рх: +5
-Верстка резиновая: при плавном изменении размера экрана от 1280px до 320px верстка подстраивается под этот размер, элементы верстки меняют свои размеры и расположение, не наезжают друг на друга, изображения могут менять размер, но сохраняют правильные пропорции (Примеры неправильной и правильной реализации): +8
-    на странице Main: +4
-    на странице Pets: +4
-При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню: +4
-    Открытие меню при клике на иконку бургер-меню на текущем этапе не проверяется
-Верстка обеих страниц валидная: для проверки валидности вёрстки используйте сервис https://validator.w3.org/ : +8`);
+/**
+ * Проверяет массив на уникальность элементов, сравнивает с предыдущим массивом если это необходимо
+ * @param {*[]} arr array of your numbers
+ * @param previousArr array for comparison
+ */
+function isUniqueArray(arr, previousArr = []) {
+    const currentSet = new Set(arr);
+    if (currentSet.size !== arr.length) return false;
+    if (previousArr.length > 0) {
+        for (let num of currentSet) {
+            if (previousArr.includes(num)) return false
+        }
+    }
+    return true
+}
+
+/**
+ * Принимает массив уникальных чисел для создания перетасованного массива с необходимым количеством повторений
+ * @param {*[]} numsArray array of unique numbers of the required length
+ * @param count number of repetitions of numbers in an array
+ */
+function createArrayWithUniqueNumbers(numsArray = [0, 1, 2, 3, 4, 5, 6, 7], count = 6) {
+    let result = []
+    for (let i = 0; i < count; i++) {
+        let shuffled = numsArray.slice();
+        shuffleArray(shuffled);
+        result = result.concat(shuffled)
+    }
+
+    return result;
+}
+
+/**
+ * Сортировка массива с уже заданной уникальной последовательностью чисел, чтобы в каждой группе элементов не было
+ * повторяющихся значений, с учетом заданного количества уникальных чисел, сохранив первоначальную уникальность
+ * @param {*[]} numsArray array of your numbers with Exist unique numbers
+ * @param requiredUniqueNumbers length of the required sequence of unique numbers
+ * @param existUniqueNumbers length of the current sequence of unique numbers that already exist in the array being
+ * checked
+ */
+function sortArrayWithUniqueNumbers(numsArray, requiredUniqueNumbers = 6, existUniqueNumbers = 8) {
+    for (let i = 0; i < numsArray.length; i += requiredUniqueNumbers) {
+        const startIndexForExistNum = i - (i % existUniqueNumbers);
+        // console.log(`i = ${i}, iFor8 = ${startIndexForExistNum}, строка ${numsArray.slice(startIndexForExistNum, startIndexForExistNum + 8)}`)
+        // if (!isUniqueArray(numsArray.slice(startIndexForExistNum, startIndexForExistNum + 8))) {
+        //     console.log(`
+        // 8 not unique at index ${startIndexForExistNum}
+        // `);
+        //     shuffleArray(numsArray, startIndexForExistNum, startIndexForExistNum + 8)
+        //     i -= 6;
+        //     continue
+        // }
+        if (!isUniqueArray(numsArray.slice(i, i + requiredUniqueNumbers))) {
+            shuffleArray(numsArray, startIndexForExistNum, startIndexForExistNum + existUniqueNumbers)
+            i -= 6;
+        }
+    }
+}
+
+let cardsArray = createArrayWithUniqueNumbers();
+sortArrayWithUniqueNumbers(cardsArray);
