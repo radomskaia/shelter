@@ -1,5 +1,6 @@
 @import "../abstracts/mixins";
-
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
 
 .header-box {
   @extend %flex;
@@ -28,14 +29,14 @@
   }
 
   .mobile-nav-box {
-    //display: inline-block;
+    display: inline-block;
     width: 100%;
     position: fixed;
     height: 100vh;
     top: 0;
     right: 0;
-    backdrop-filter: blur(2px);
-    display: none;
+    backdrop-filter: brightness(100%);
+    transition: .5s;
 
     .mobile-nav {
       position: fixed;
@@ -48,7 +49,16 @@
       width: 32rem;
       justify-content: center;
       align-items: center;
+      transform: translateX(100%);
+      transition: .5s;
+
+      &_dark {
       background-color: $color-dark-3xl;
+    }
+
+      &_light {
+      background-color: $color-light-xl;
+    }
 
       .nav_link,
       .nav_link:link,
@@ -56,11 +66,21 @@
         font-family: Arial, sans-serif;
         font-size: 3.2rem;
         line-height: 1.6;
-        color: $color-light-s;
+        //color: $color-light-s;
         z-index: 888;
       }
     }
   }
+
+  .mobile-nav-box_active {
+    backdrop-filter: brightness(20%);
+
+    .mobile-nav {
+      transform: translateX(0);
+    }
+  }
+
+
 }
 
 @include respond(phone) {

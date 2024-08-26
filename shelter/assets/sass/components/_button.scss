@@ -1,4 +1,5 @@
 @import "../abstracts/mixins";
+@import "../layout/header";
 
 .btn:link,
 .btn:visited {
@@ -47,7 +48,7 @@
   text-align: center;
   border: 2px solid $color-primary;
   color: $color-dark-3xl;
-   background-color: inherit;
+  background-color: inherit;
 }
 
 .btn_circle:hover {
@@ -59,7 +60,7 @@
 .btn_circle:disabled,
 .btn_circle:disabled:hover {
   cursor: not-allowed;
-  border: 2px solid  $color-dark-s;
+  border: 2px solid $color-dark-s;
   background-color: inherit;
   color: $color-dark-s;
 }
@@ -93,15 +94,17 @@
   border-bottom: 3px solid $color-primary;
 }
 
-.nav_link__dark,
+
 .nav_link__dark:link,
 .nav_link__dark:visited,
-.nav_link__dark:active, {
+ {
   color: $color-dark-l;
   transition: all .2s;
 }
 
-.nav_link__dark:hover {
+.nav_link__dark,
+.nav_link__dark:hover,
+.nav_link__dark:active, {
   color: $color-dark-3xl;
 }
 
@@ -112,18 +115,32 @@
   transition: all .2s;
 }
 
+.nav_link__light,
 .nav_link__light:hover,
 .nav_link__light:active {
   color: $color-light-s;
 }
 
+.burger {
+  z-index: 999;
+  position: absolute;
+  top: 19px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  transition: all .5s;
+}
+
 .burger-icon {
   position: absolute;
-  top: 29px;
-  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  //right: 20px;
   width: 3rem;
   height: 2px;
   background: $color-primary;
+  z-index: 999;
+  transition: all .5s;
 
   &:before {
     content: "";
@@ -131,7 +148,8 @@
     top: 10px;
     width: 3rem;
     height: 2px;
-    background: $color-primary;
+    background: inherit;
+    transition: all .5s;
   }
 
   &:after {
@@ -140,49 +158,26 @@
     top: -10px;
     width: 3rem;
     height: 2px;
-    background: $color-primary;
+    background: inherit;
     transform: translateX(-14%);
+    transition: all .5s;
   }
 
   display: none;
 }
 
 .burger-icon_dark {
-  position: absolute;
-  top: 29px;
-  right: 20px;
-  width: 3rem;
-  height: 2px;
   background: #000000;
+}
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    width: 3rem;
-    height: 2px;
-    background: #000000;
+.burger-icon__active {
+  .burger-icon {
+    transform: rotate(90deg);
   }
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    width: 3rem;
-    height: 2px;
-    background: #000000;
-    transform: translateX(-14%);
-  }
-
-  display: none;
 }
 
 @include respond(big-phone) {
   .burger-icon {
-    display: block;
-  }
-
-  .burger-icon_dark {
     display: block;
   }
 }

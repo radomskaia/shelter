@@ -8,7 +8,7 @@
  * @param start array shuffle start index
  * @param end array shuffle end index
  */
-function shuffleArray(arr, start = 0, end = arr.length) {
+export function shuffleArray(arr, start = 0, end = arr.length) {
     for (let i = end - 1; i > start; i--) {
         let j = Math.round(Math.random() * (i - start)) + start;
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -36,14 +36,13 @@ function isUniqueArray(arr, previousArr = []) {
  * @param {*[]} numsArray array of unique numbers of the required length
  * @param count number of repetitions of numbers in an array
  */
-function createArrayWithUniqueNumbers(numsArray = [0, 1, 2, 3, 4, 5, 6, 7], count = 6) {
+function createArrayWithUniqueNumbers(numsArray = Array.from({length: 8}, (_, i) => i), count = 6) {
     let result = []
     for (let i = 0; i < count; i++) {
         let shuffled = numsArray.slice();
         shuffleArray(shuffled);
         result = result.concat(shuffled)
     }
-
     return result;
 }
 
@@ -73,6 +72,3 @@ function sortArrayWithUniqueNumbers(numsArray, requiredUniqueNumbers = 6, existU
         }
     }
 }
-
-let cardsArray = createArrayWithUniqueNumbers();
-sortArrayWithUniqueNumbers(cardsArray);
