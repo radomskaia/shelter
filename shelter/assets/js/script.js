@@ -146,10 +146,11 @@ function sliderCarousel() {
     let previousCardsIndex = [];
     let nextCardsIndex = [];
     let numOfCards = 3;
-    let screenWidth = window.innerWidth;
+    let screenWidth = document.documentElement.clientWidth;
 
     function checkScreenWidth() {
-        screenWidth = window.innerWidth;
+        // screenWidth = window.innerWidth;
+        screenWidth = document.documentElement.clientWidth;
         const prevEl = document.querySelector('.prev');
         const nextEl = document.querySelector('.next');
         const currEl = document.querySelector('.curr');

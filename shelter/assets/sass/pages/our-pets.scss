@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 4rem;
+  position: static;
   row-gap: 3rem;
 }
 
