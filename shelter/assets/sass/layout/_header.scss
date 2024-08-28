@@ -74,6 +74,7 @@
 
   .mobile-nav-box_active {
     backdrop-filter: brightness(20%);
+    z-index: 998;
 
     .mobile-nav {
       transform: translateX(0);
