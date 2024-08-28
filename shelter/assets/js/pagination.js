@@ -247,6 +247,8 @@ export function pagination() {
             rightArrowBtn.disabled = false;
             dabbleRightArrowBtn.disabled = false;
         } else if (offset > numOfCards && offset < petsArr.length) {
+            leftArrowBtn.disabled = false;
+            dabbleLeftArrowBtn.disabled = false;
             rightArrowBtn.disabled = false;
             dabbleRightArrowBtn.disabled = false;
         } else {
