@@ -59,7 +59,7 @@
 
 .btn_circle:disabled,
 .btn_circle:disabled:hover {
-  cursor: not-allowed;
+  cursor: auto;
   border: 2px solid $color-dark-s;
   background-color: inherit;
   color: $color-dark-s;
@@ -180,4 +180,8 @@
   .burger-icon {
     display: block;
   }
+}
+
+.slider_btn-left, .slider_btn-right {
+  z-index: 999;
 }

@@ -5,18 +5,48 @@
 }
 
 .card-box {
-  gap: 5.3rem;
+  gap: clamp(1.2rem, 4vw, 5.3rem);
 }
 
 .cards-list {
   @extend %flex;
-  gap: 9rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  //gap: clamp(4rem, 4vw, 8.9rem);
+  flex-wrap: nowrap;
+}
+
+.curr {
+  left: 0;
+  //background-color: pink;
+}
+
+.prev {
+  left: -110%;
+  //background-color: green;
+}
+
+.next {
+  left: 110%;
+  //background-color: navy;
+}
+
+.cards-list-box {
+  position: relative;
+  @extend %flex;
+  width: clamp(57rem, 76vw, 98.8rem);
+  height: 43.5rem;
+  overflow: hidden;
+  flex-wrap: nowrap;
 }
 
 .card-item {
   @extend %flex-col;
   align-items: center;
   gap: 3rem;
+  flex-shrink: 0;
 }
 
 .pets-header {
@@ -25,9 +55,9 @@
 }
 
 @include respond(tab-land) {
-  .cards-list {
-    gap: 4rem;
-  }
+  //.cards-list {
+  //  gap: 4rem;
+  //}
 
   .card-box {
     gap: 1.2rem;
@@ -35,8 +65,18 @@
 }
 
 @include respond(tab-port) {
-  .card-item.page1:last-child {
-    display: none;
+  //.card-item.page1:last-child {
+  //  display: none;
+  //}
+
+  .cards-list {
+    gap: 2.9rem;
+    justify-content: center;
+  }
+
+  .cards-list-box {
+    width: 57rem
+
   }
 }
 
@@ -59,9 +99,9 @@
 }
 
 @include respond(phone) {
-  .card-item.page1:nth-child(2) {
-    display: none;
-  }
+  //.card-item.page1:nth-child(2) {
+  //  display: none;
+  //}
 
 
   .card-box {
