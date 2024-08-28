@@ -112,14 +112,14 @@ export function shuffleArray(arr, start = 0, end = arr.length) {
  * @param {*[]} arr array of your numbers
  * @param previousArr array for comparison
  */
-function isUniqueArray(arr, previousArr = []) {
+function isUniqueArray(arr/*, previousArr = []*/) {
     const currentSet = new Set(arr);
     if (currentSet.size !== arr.length) return false;
-    if (previousArr.length > 0) {
-        for (let num of currentSet) {
-            if (previousArr.includes(num)) return false
-        }
-    }
+    // if (previousArr.length > 0) {
+    //     for (let num of currentSet) {
+    //         if (previousArr.includes(num)) return false
+    //     }
+    // }
     return true
 }
 
@@ -166,14 +166,108 @@ function sortArrayWithUniqueNumbers(numsArray, requiredUniqueNumbers = 6, existU
 }
 
 export function createPetsCards(indexArr, position) {
-        const cardsList = document.querySelector(`.${position}`);
-        indexArr.forEach((petIndex) => {
-            const petCard = document.createElement('li')
-            petCard.classList.add("card-item", 'page1')
-            petCard.setAttribute('data-index', petIndex)
-            petCard.innerHTML = `<img class="card_img" src="${pets[petIndex].img}" alt="Photo of pet">
+    const cardsList = document.querySelector(`.${position}`);
+    indexArr.forEach((petIndex) => {
+        const petCard = document.createElement('li')
+        petCard.classList.add("card-item", 'page1')
+        petCard.setAttribute('data-index', petIndex)
+        petCard.innerHTML = `<img class="card_img" src="${pets[petIndex].img}" alt="Photo of pet">
                         <h4 class="header_4">${pets[petIndex].name}</h4>
                         <a class="btn button_secondary modal_btn" href="#">Learn more</a>`
-            cardsList.append(petCard)
-        })
+        cardsList.append(petCard)
+    })
+}
+
+export function pagination() {
+    const pageBtn = document.querySelector(".page_number");
+    const dabbleLeftArrowBtn = document.querySelector(".dabble_left_arrow");
+    const dabbleRightArrowBtn = document.querySelector(".dabble_right_arrow");
+    const leftArrowBtn = document.querySelector(".left_arrow");
+    const rightArrowBtn = document.querySelector(".right_arrow");
+    const petsArr = createArrayWithUniqueNumbers()
+    sortArrayWithUniqueNumbers(petsArr)
+    let numOfCards, screenWidth, offset, page;
+
+
+    function checkScreenWidth() {
+        screenWidth = document.documentElement.clientWidth;
+        if (screenWidth > 1217) {
+            if (numOfCards !== 8) {
+                numOfCards = 8;
+                offset = offset ? offset : numOfCards;
+                getCardsForPage.bind('curr')()
+            }
+        }
+
+        if (screenWidth <= 1217 && screenWidth > 576) {
+            if (numOfCards !== 6) {
+                numOfCards = 6;
+                offset = offset ? offset : numOfCards;
+                getCardsForPage.bind('curr')()
+            }
+        }
+
+        if (screenWidth <= 576) {
+            if (numOfCards !== 3) {
+                numOfCards = 3;
+                offset = offset ? offset : numOfCards;
+                getCardsForPage.bind('curr')()
+            }
+        }
+
     }
+
+    function getCardsForPage() {
+        // e.preventDefault();
+        if (this === 'next') offset += numOfCards;
+        if (this === 'prev') offset -= numOfCards;
+        if (this === 'curr') {
+
+            offset -= offset % numOfCards;
+            if (offset === 0) {
+                offset = numOfCards;
+            }
+
+        }
+        console.log('Offset before width change', offset)
+        if (this === 'first') offset = numOfCards;
+        if (this === 'last') offset = petsArr.length;
+        console.log('Offset after width change', offset)
+
+        document.querySelector('.pets-page').innerHTML = '';
+        const indexArr = petsArr.slice((offset - numOfCards), offset);
+        createPetsCards(indexArr, 'pets-page');
+        page = offset / numOfCards;
+        pageBtn.textContent = `${page}`;
+
+        if (offset === numOfCards) {
+            console.log('Offset in left', offset)
+            leftArrowBtn.disabled = true;
+            dabbleLeftArrowBtn.disabled = true;
+            rightArrowBtn.disabled = false;
+            dabbleRightArrowBtn.disabled = false;
+        } else if (offset > numOfCards && offset < petsArr.length) {
+            rightArrowBtn.disabled = false;
+            dabbleRightArrowBtn.disabled = false;
+        } else {
+            console.log('Offset in right', offset)
+            dabbleRightArrowBtn.disabled = true;
+            rightArrowBtn.disabled = true;
+            leftArrowBtn.disabled = false;
+            dabbleLeftArrowBtn.disabled = false;
+        }
+
+
+    }
+
+
+    checkScreenWidth()
+    getCardsForPage.bind('curr')()
+
+    window.addEventListener('resize', checkScreenWidth)
+    leftArrowBtn.addEventListener('click', getCardsForPage.bind('prev'))
+    rightArrowBtn.addEventListener('click', getCardsForPage.bind('next'))
+    dabbleLeftArrowBtn.addEventListener('click', getCardsForPage.bind('first'))
+    dabbleRightArrowBtn.addEventListener('click', getCardsForPage.bind('last'))
+}
+
