@@ -8,16 +8,16 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
+    <!--    <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">-->
 
     <!--    CSS-->
     <link rel="stylesheet" href="assets/css/main.css">
 
     <!--    JS-->
-    <script src="index.js"></script>
+    <!--    <script type="module" src="assets/js/pagination.js" defer></script>-->
+    <script type="module" src="assets/js/script.js" defer></script>
 
     <title>Cozy House</title>
-    <script src="index.js"></script>
 </head>
 <body>
 <header class="header-section flex flex__center">
@@ -26,21 +26,23 @@
             <h1 class="logo__title">Cozy House</h1>
             <p class="logo__subtitle">Shelter for pets in Boston</p>
         </a>
-        <div class="burger-icon">&nbsp;</div>
+        <div class="burger">
+            <div class="burger-icon">&nbsp;</div>
+        </div>
         <nav class="nav">
             <a class="nav_link nav_link__light">About the shelter</a>
             <a href="our-pets.html" class="nav_link nav_link__light">Our pets</a>
             <a href="#help" class="nav_link nav_link__light">Help the shelter</a>
             <a href="#contacts" class="nav_link nav_link__light">Contacts</a>
         </nav>
-<!--        <div class="mobile-nav-box ">-->
-<!--            <nav class="mobile-nav">-->
-<!--                <a class="nav_link nav_link__light">About the shelter</a>-->
-<!--                <a href="our-pets.html" class="nav_link nav_link__light">Our pets</a>-->
-<!--                <a href="#help" class="nav_link nav_link__light">Help the shelter</a>-->
-<!--                <a href="#contacts" class="nav_link nav_link__light">Contacts</a>-->
-<!--            </nav>-->
-<!--        </div>-->
+        <div class="mobile-nav-box">
+            <nav class="mobile-nav mobile-nav_dark">
+                <a class="nav_link nav_link__light">About the shelter</a>
+                <a href="our-pets.html" class="nav_link nav_link__light">Our pets</a>
+                <a href="#help" class="nav_link nav_link__light">Help the shelter</a>
+                <a href="#contacts" class="nav_link nav_link__light">Contacts</a>
+            </nav>
+        </div>
     </div>
 </header>
 <main>
@@ -53,7 +55,7 @@
                     open heart. He or she will love you more than anybody else in the world, you will see!</p>
                 <a class="btn button_primary align-self__start" href="#pets">Make a friend</a>
             </div>
-<!--            <div class="start-img">&nbsp;</div>-->
+            <!--            <div class="start-img">&nbsp;</div>-->
             <img class="start-img" src="assets/img/start-screen-puppy.png" alt="Puppy">
         </div>
     </section>
@@ -76,29 +78,47 @@
         <div class="container pets-box">
             <h3 class="header_3 text-align-center pets-header">Our friends who<br>are looking for a house</h3>
             <div class="card-box flex flex__center">
-                <a href="#" class="btn_circle btn_circle_able">&larr;</a>
-                <ul class="cards-list flex">
-                    <li class="card-item page1">
-                        <img class="card_img" src="assets/img/our_pets/pets-katrine.png" alt="Photo of kat">
-                        <h4 class="header_4">Katrine</h4>
-                        <a class="btn button_secondary" href="#">Learn more</a>
-                    </li>
-                    <li class="card-item page1">
-                        <img class="card_img" src="assets/img/our_pets/pets-jennifer.png" alt="Photo of kat">
-                        <h4 class="header_4">Jennifer</h4>
-                        <a class="btn button_secondary" href="#">Learn more</a>
-                    </li>
-                    <li class="card-item page1">
-                        <img class="card_img" src="assets/img/our_pets/pets-woody.png" alt="Photo of kat">
-                        <h4 class="header_4">Woody</h4>
-                        <a class="btn button_secondary" href="#">Learn more</a>
-                    </li>
-                </ul>
-                <a href="#" class="btn_circle btn_circle_able">&rarr;</a>
+                <button class="btn_circle btn_circle_able slider_btn-left">&larr;</button>
+                <div class="cards-list-box">
+                    <ul class="cards-list flex prev">
+                    </ul>
+                    <ul class="cards-list flex curr">
+                    </ul>
+                    <ul class="cards-list flex next">
+                    </ul>
+                </div>
+                <button class="btn_circle btn_circle_able slider_btn-right">&rarr;</button>
             </div>
             <a class="btn button_primary" href="our-pets.html">Get to know the rest</a>
         </div>
     </section>
+    <div class="modal-window-box flex flex__center">
+        <div class="modal-window flex">
+            <div class="modal-window__img-box">
+                <img class="modal-img" src="assets/img/pets_500px/jennifer.png" alt="Pets photo">
+            </div>
+            <div class="modal-text-box flex-col">
+                <div class="flex-col"><h3 class="header_3 pets-name">Jennifer</h3>
+                    <h4 class="header_4 pets-type">Dog - Labrador</h4>
+                </div>
+                <p class="header_5 pets-description">Jennifer is a sweet 2 months old Labrador that is patiently waiting
+                    to find a
+                    new forever home. This girl really enjoys being able to go outside to run and play, but won't
+                    hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+                <ul class="flex-col">
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Age:</b>&nbsp;<span class="pets-age">2 month</span>
+                    </li>
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Inoculations:</b>&nbsp;<span
+                            class="pets-inoculations">none</span></li>
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Diseases:</b>&nbsp;<span
+                            class="pets-diseases">none</span></li>
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Parasites:</b>&nbsp;<span
+                            class="pets-parasites">none</span></li>
+                </ul>
+            </div>
+            <button class="btn btn_circle btn_modal"><span>&nbsp;</span></button>
+        </div>
+    </div>
     <section class="help-section" id="help">
         <div class="container help-box">
             <h3 class="header_3">How you can help<br>our shelter</h3>

@@ -7,10 +7,10 @@
   }
 
    @if $breakpoint == big-phone {
-    @media only screen and (max-width: 47.9375em) {
+    @media only screen and (width < 48em) {
       @content
     }
-    //767px
+    //768px
   }
 
   @if $breakpoint == tab-port-2 {

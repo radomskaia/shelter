@@ -1,0 +1,179 @@
+.modal-window-box {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  //backdrop-filter: brightness(60%);
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  opacity: 0;
+  transition: .3s;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal-window {
+  position: relative;
+  width: clamp(63rem, 70vw, 90rem);
+  z-index: 999;
+  background-color: $color-light-s;
+  border-radius: 9px;
+  gap: clamp(1.1rem, 3%, 2.9rem);
+  @include respond(tab-port) {
+    gap: 1.1rem;
+    margin: 5.5rem;
+  }
+
+
+  @include respond(phone) {
+    width: clamp(24rem, 75vw, 35rem);
+    justify-content: center;
+    margin: 2rem;
+    padding: 1rem;
+  }
+}
+
+.modal-window.flex {
+  flex-wrap: nowrap;
+}
+
+.modal-text-box {
+  width: clamp(26rem, 50%, 35.1rem);
+  padding: 5rem 2rem 1rem 0;
+  gap: 4rem;
+
+
+  @include respond(tab-land) {
+    padding-top: 2rem;
+    gap: 3rem
+  }
+
+  @include respond(tab-port) {
+    padding-right: 0.9rem;
+    padding-top: 1rem;
+    gap: 2rem
+  }
+
+  @include respond(phone) {
+      width: 100%;
+    }
+
+  & div {
+    gap: 1rem;
+    @include respond(phone) {
+      text-align: center;
+    }
+  }
+
+  & .header_5.pets-description {
+    line-height: 1.15;
+
+    @include respond(tab-port) {
+      line-height: 1.1;
+      font-size: 1.3rem;
+    }
+  }
+
+  & .header_5.flex {
+    flex-wrap: nowrap;
+    @include respond(phone) {
+      flex-wrap: wrap;
+    }
+  }
+
+  & ul {
+    list-style: none;
+    gap: 1rem;
+
+
+    @include respond(tab-port) {
+      gap: 0.5rem;
+    }
+
+    & .dot {
+      display: inline-block;
+      margin-right: 1rem;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      align-self: center;
+      background-color: $color-primary;
+    }
+  }
+}
+
+.modal-window__img-box {
+  width: clamp(35rem, 69%, 50rem);
+  max-height: clamp(35rem, 50%, 50rem);
+  overflow: hidden;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  display: flex;
+  align-items: center;
+  @include respond(phone) {
+    display: none;
+  }
+
+}
+
+.modal-img {
+  //object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.btn_modal {
+  position: absolute;
+  top: -5.1rem;
+  right: -4.2rem;
+  background-color: transparent;
+
+  @include respond(big-phone) {
+    right: -3rem;
+  }
+
+  & span {
+    display: inline-block;
+    position: relative;
+    background-color: #000000;
+    width: 1.7rem;
+    height: 2px;
+    transform: rotate(45deg);
+    z-index: 999;
+
+    &:before {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      background-color: #000000;
+      width: 1.7rem;
+      height: 2px;
+      transform: rotate(90deg);
+      z-index: 999;
+    }
+  }
+}
+
+.modal-window-box__active {
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 989;
+  opacity: 1;
+}
+
+@include respond(phone) {
+  .pets-description {
+    text-align: justify;
+    word-break: break-all;
+  }
+
+  .header_3.pets-name {
+    font-size: 3.5rem;
+  }
+
+
+}

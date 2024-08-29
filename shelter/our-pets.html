@@ -8,14 +8,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
+    <!--    <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">-->
 
     <!--    CSS-->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/our-pets.css">
 
     <!--    JS-->
-    <script src="index.js"></script>
+    <script type="module" src="assets/js/our-pets.js" defer></script>
 
     <title>Cozy House</title>
 </head>
@@ -26,15 +26,17 @@
             <h1 class="logo__title">Cozy House</h1>
             <p class="logo__subtitle">Shelter for pets in Boston</p>
         </a>
-        <div class="burger-icon_dark">&nbsp;</div>
+        <div class="burger">
+            <div class="burger-icon burger-icon_dark">&nbsp;</div>
+        </div>
         <nav class="nav">
             <a href="index.html" class="nav_link nav_link__dark">About the shelter</a>
             <a class="nav_link nav_link__dark">Our pets</a>
             <a href="index.html#help" class="nav_link nav_link__dark">Help the shelter</a>
             <a href="#contacts" class="nav_link nav_link__dark">Contacts</a>
         </nav>
-        <div class="mobile-nav-box ">
-            <nav class="mobile-nav">
+        <div class="mobile-nav-box">
+            <nav class="mobile-nav mobile-nav_light">
                 <a href="index.html" class="nav_link nav_link__dark">About the shelter</a>
                 <a class="nav_link nav_link__dark">Our pets</a>
                 <a href="index.html#help" class="nav_link nav_link__dark">Help the shelter</a>
@@ -48,56 +50,83 @@
         <div class="container pets-box">
             <h3 class="header_3 text-align-center pets-header">Our friends who<br>are looking for a house</h3>
             <ul class="cards-list pets-page">
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-katrine.png" alt="Photo of puppy">
-                    <h4 class="header_4">Katrine</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-jennifer.png" alt="Photo of puppy">
-                    <h4 class="header_4">Jennifer</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-woody.png" alt="Photo of puppy">
-                    <h4 class="header_4">Woody</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-katrine%20(1).png" alt="Photo of puppy">
-                    <h4 class="header_4">Sophia</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-timmy.png" alt="Photo of puppy">
-                    <h4 class="header_4">Timmy</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-charly.png" alt="Photo of puppy">
-                    <h4 class="header_4">Charly</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-scarlet.png" alt="Photo of puppy">
-                    <h4 class="header_4">Scarlett</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
-                <li class="card-item">
-                    <img class="card_img" src="assets/img/our_pets/pets-katrine%20(2).png" alt="Photo of puppy">
-                    <h4 class="header_4">Freddie</h4>
-                    <a class="btn button_secondary" href="#">Learn more</a>
-                </li>
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-katrine.png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Katrine</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-jennifer.png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Jennifer</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-woody.png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Woody</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-katrine%20(1).png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Sophia</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-timmy.png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Timmy</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-charly.png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Charly</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-scarlet.png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Scarlett</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
+                <!--                <li class="card-item">-->
+                <!--                    <img class="card_img" src="assets/img/our_pets/pets-katrine%20(2).png" alt="Photo of puppy">-->
+                <!--                    <h4 class="header_4">Freddie</h4>-->
+                <!--                    <a class="btn button_secondary" href="#">Learn more</a>-->
+                <!--                </li>-->
             </ul>
             <div class="pagination">
-                <button class="btn_circle" disabled>&lt;&lt;</button>
-                <button class="btn_circle" disabled>&lt;</button>
-                <button class="btn_circle btn_circle-active">1</button>
-                <button class="btn_circle">&gt;</button>
-                <button class="btn_circle">&gt;&gt;</button>
+                <button class="btn_circle dabble_left_arrow" disabled>&lt;&lt;</button>
+                <button class="btn_circle left_arrow" disabled>&lt;</button>
+                <button class="btn_circle btn_circle-active page_number">1</button>
+                <button class="btn_circle right_arrow">&gt;</button>
+                <button class="btn_circle dabble_right_arrow">&gt;&gt;</button>
             </div>
         </div>
     </section>
+    <div class="modal-window-box flex flex__center">
+        <div class="modal-window flex">
+            <div class="modal-window__img-box">
+                <img class="modal-img" src="assets/img/pets_500px/jennifer.png" alt="Pets photo">
+            </div>
+            <div class="modal-text-box flex-col">
+                <div class="flex-col"><h3 class="header_3 pets-name">Jennifer</h3>
+                    <h4 class="header_4 pets-type">Dog - Labrador</h4>
+                </div>
+                <p class="header_5 pets-description">Jennifer is a sweet 2 months old Labrador that is patiently waiting
+                    to find a
+                    new forever home. This girl really enjoys being able to go outside to run and play, but won't
+                    hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+                <ul class="flex-col">
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Age:</b>&nbsp;<span class="pets-age">2 month</span>
+                    </li>
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Inoculations:</b>&nbsp;<p
+                            class="pets-inoculations">none</p></li>
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Diseases:</b>&nbsp;<span
+                            class="pets-diseases">none</span></li>
+                    <li class="header_5 flex"><span class="dot">&nbsp;</span><b>Parasites:</b>&nbsp;<span
+                            class="pets-parasites">none</span></li>
+                </ul>
+            </div>
+            <button class="btn btn_circle btn_modal"><span>&nbsp;</span></button>
+        </div>
+    </div>
 </main>
 <footer class="footer footer2" id="contacts">
     <div class="container">

@@ -40,6 +40,7 @@
     gap: 7.5%;
     row-gap: 2.3%;
     justify-content: center;
+    width: auto;
   }
   .pagination {
     margin-top: 7.1rem;
@@ -51,7 +52,7 @@
     line-height: 1.28;
   }
 }
-@media only screen and (max-width: 47.9375em) {
+@media only screen and (width < 48em) {
   .cards-list.pets-page {
     gap: 3rem;
   }
