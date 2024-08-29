@@ -30,7 +30,7 @@
 
   .mobile-nav-box {
     display: inline-block;
-    width: 0;
+    width: 100%;
     position: fixed;
     height: 100vh;
     top: 0;
@@ -38,6 +38,8 @@
     backdrop-filter: brightness(100%);
     transition: .4s;
     //opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
 
     .mobile-nav {
       position: fixed;
@@ -54,12 +56,12 @@
       transition: .5s;
 
       &_dark {
-      background-color: $color-dark-3xl;
-    }
+        background-color: $color-dark-3xl;
+      }
 
       &_light {
-      background-color: $color-light-xl;
-    }
+        background-color: $color-light-xl;
+      }
 
       .nav_link,
       .nav_link:link,
@@ -76,8 +78,10 @@
   .mobile-nav-box_active {
     backdrop-filter: brightness(20%);
     //opacity: 1;
-    width: 100%;
+    //width: 100%;
     z-index: 998;
+    pointer-events: auto;
+    visibility: visible;
 
     .mobile-nav {
       transform: translateX(0);

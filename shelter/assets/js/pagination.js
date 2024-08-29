@@ -1,4 +1,4 @@
-const pets = [
+export const pets = [
     {
         "name": "Jennifer",
         "img": "assets/img/pets_500px/jennifer.png",
@@ -112,14 +112,14 @@ export function shuffleArray(arr, start = 0, end = arr.length) {
  * @param {*[]} arr array of your numbers
  * @param previousArr array for comparison
  */
-function isUniqueArray(arr/*, previousArr = []*/) {
+function isUniqueArray(arr, previousArr = []) {
     const currentSet = new Set(arr);
     if (currentSet.size !== arr.length) return false;
-    // if (previousArr.length > 0) {
-    //     for (let num of currentSet) {
-    //         if (previousArr.includes(num)) return false
-    //     }
-    // }
+    if (previousArr.length > 0) {
+        for (let num of currentSet) {
+            if (previousArr.includes(num)) return false
+        }
+    }
     return true
 }
 
@@ -142,24 +142,15 @@ function createArrayWithUniqueNumbers(numsArray = Array.from({length: 8}, (_, i)
  * Сортировка массива с уже заданной уникальной последовательностью чисел, чтобы в каждой группе элементов не было
  * повторяющихся значений, с учетом заданного количества уникальных чисел, сохранив первоначальную уникальность
  * @param {*[]} numsArray array of your numbers with Exist unique numbers
- * @param requiredUniqueNumbers length of the required sequence of unique numbers
- * @param existUniqueNumbers length of the current sequence of unique numbers that already exist in the array being
+ * @param required length of the required sequence of unique numbers
+ * @param exist length of the current sequence of unique numbers that already exist in the array being
  * checked
  */
-function sortArrayWithUniqueNumbers(numsArray, requiredUniqueNumbers = 6, existUniqueNumbers = 8) {
-    for (let i = 0; i < numsArray.length; i += requiredUniqueNumbers) {
-        const startIndexForExistNum = i - (i % existUniqueNumbers);
-        // console.log(`i = ${i}, iFor8 = ${startIndexForExistNum}, строка ${numsArray.slice(startIndexForExistNum, startIndexForExistNum + 8)}`)
-        // if (!isUniqueArray(numsArray.slice(startIndexForExistNum, startIndexForExistNum + 8))) {
-        //     console.log(`
-        // 8 not unique at index ${startIndexForExistNum}
-        // `);
-        //     shuffleArray(numsArray, startIndexForExistNum, startIndexForExistNum + 8)
-        //     i -= 6;
-        //     continue
-        // }
-        if (!isUniqueArray(numsArray.slice(i, i + requiredUniqueNumbers))) {
-            shuffleArray(numsArray, startIndexForExistNum, startIndexForExistNum + existUniqueNumbers)
+function sortArrayWithUniqueNumbers(numsArray, required = 6, exist = 8) {
+    for (let i = 0; i < numsArray.length; i += required) {
+        const startIndexForExistNum = (i + exist) - ((i + exist) % exist);
+        if (!isUniqueArray(numsArray.slice(i, i + required))) {
+            shuffleArray(numsArray, startIndexForExistNum, startIndexForExistNum + exist)
             i -= 6;
         }
     }
@@ -173,7 +164,7 @@ export function createPetsCards(indexArr, position) {
         petCard.setAttribute('data-index', petIndex)
         petCard.innerHTML = `<img class="card_img" src="${pets[petIndex].img}" alt="Photo of pet">
                         <h4 class="header_4">${pets[petIndex].name}</h4>
-                        <a class="btn button_secondary modal_btn" href="#">Learn more</a>`
+                        <button class="pets_btn">Learn more</button>`
         cardsList.append(petCard)
     })
 }
@@ -229,10 +220,10 @@ export function pagination() {
             }
 
         }
-        console.log('Offset before width change', offset)
+        // console.log('Offset before width change', offset)
         if (this === 'first') offset = numOfCards;
         if (this === 'last') offset = petsArr.length;
-        console.log('Offset after width change', offset)
+        // console.log('Offset after width change', offset)
 
         document.querySelector('.pets-page').innerHTML = '';
         const indexArr = petsArr.slice((offset - numOfCards), offset);
@@ -241,7 +232,7 @@ export function pagination() {
         pageBtn.textContent = `${page}`;
 
         if (offset === numOfCards) {
-            console.log('Offset in left', offset)
+            // console.log('Offset in left', offset)
             leftArrowBtn.disabled = true;
             dabbleLeftArrowBtn.disabled = true;
             rightArrowBtn.disabled = false;
@@ -252,7 +243,7 @@ export function pagination() {
             rightArrowBtn.disabled = false;
             dabbleRightArrowBtn.disabled = false;
         } else {
-            console.log('Offset in right', offset)
+            // console.log('Offset in right', offset)
             dabbleRightArrowBtn.disabled = true;
             rightArrowBtn.disabled = true;
             leftArrowBtn.disabled = false;

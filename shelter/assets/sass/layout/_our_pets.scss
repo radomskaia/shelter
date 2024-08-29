@@ -10,9 +10,6 @@
 
 .cards-list {
   @extend %flex;
-  position: absolute;
-  top: 0;
-  width: 100%;
   justify-content: space-between;
   //gap: clamp(4rem, 4vw, 8.9rem);
   flex-wrap: nowrap;
@@ -40,6 +37,12 @@
   height: 43.5rem;
   overflow: hidden;
   flex-wrap: nowrap;
+
+  & .cards-list {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
 
 .card-item {

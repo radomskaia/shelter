@@ -2,11 +2,11 @@
 @import "../abstracts/placeholders";
 @import "../abstracts/variables";
 
+
 .cards-list.pets-page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 4rem;
-  position: static;
   row-gap: 3rem;
 }
 
@@ -48,6 +48,7 @@
     gap: 7.5%;
     row-gap: 2.3%;
     justify-content: center;
+    width: auto;
   }
 
   .pagination {
