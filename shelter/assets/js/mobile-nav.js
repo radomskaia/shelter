@@ -35,6 +35,17 @@ export function mobileNav() {
         if (!mobileNav.contains(target) && !burgerBtn.contains(target)) toggleMobileNav()
     }
 
+    function checkScreenWidth() {
+        const screenWidth = document.documentElement.clientWidth;
+        if (screenWidth > 768) {
+            burgerBtn.classList.remove("burger-icon__active");
+            mobileNavBox.classList.remove("mobile-nav-box_active");
+        }
+        ;
+    }
+
+
     burgerBtn.addEventListener("click", toggleMobileNav)
     mobileNav.addEventListener("click", closeMobileNav)
+    window.addEventListener('resize', checkScreenWidth)
 }
