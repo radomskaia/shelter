@@ -128,8 +128,8 @@ export function sliderCarousel() {
         setTimeout(() => {
             btnLeft.disabled = true;
             btnRight.disabled = true;
-            btnLeft.removeEventListener("click", showNextCards)
-            btnRight.removeEventListener("click", showPrevCards)
+            btnLeft.removeEventListener("click", showPrevCards)
+            btnRight.removeEventListener("click", showNextCards)
 
             allCardsList.forEach((item) => {
                 item.style.transition = 'all 0.5s';
@@ -157,8 +157,8 @@ export function sliderCarousel() {
                     // console.log(currEl);
                     btnLeft.disabled = false;
                     btnRight.disabled = false;
-                    btnLeft.addEventListener("click", showNextCards)
-                    btnRight.addEventListener("click", showPrevCards)
+                    btnLeft.addEventListener("click", showPrevCards)
+                    btnRight.addEventListener("click", showNextCards)
                 }, 500);
             }
         }, 2)
@@ -199,8 +199,8 @@ export function sliderCarousel() {
             if (deleteBool) {
                 btnLeft.disabled = true;
                 btnRight.disabled = true;
-                btnLeft.removeEventListener("click", showNextCards)
-                btnRight.removeEventListener("click", showPrevCards)
+                btnLeft.removeEventListener("click", showPrevCards)
+                btnRight.removeEventListener("click", showNextCards)
                 setTimeout(() => {
                     allCardsList.forEach((item) => {
                         item.style.transition = '';
@@ -221,8 +221,8 @@ export function sliderCarousel() {
 
                     btnLeft.disabled = false;
                     btnRight.disabled = false;
-                    btnLeft.addEventListener("click", showNextCards)
-                    btnRight.addEventListener("click", showPrevCards)
+                    btnLeft.addEventListener("click", showPrevCards)
+                    btnRight.addEventListener("click", showNextCards)
                 }, 500);
             }
         }, 20)
@@ -234,8 +234,8 @@ export function sliderCarousel() {
         previousCardsIndex = [];
     }
 
-    btnLeft.addEventListener("click", showNextCards)
-    btnRight.addEventListener("click", showPrevCards)
+    btnLeft.addEventListener("click", showPrevCards)
+    btnRight.addEventListener("click", showNextCards)
     document.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft' && btnLeft.disabled === false && btnRight.disabled === false) {
             showNextCards()
