@@ -110,7 +110,7 @@ export function shuffleArray(arr, start = 0, end = arr.length) {
 /**
  * Создает карточки для пагинации и слайдера-карусели
  * @param {*[]} indexArr массив индексов для создания карточек
- * @param {string|showNewCards} position класс для списка .cards-list который необходимо создать
+ * @param {string} position класс для списка .cards-list который необходимо создать
  * @param newList по умолчанию true - карточки создаются со списком .cards-list; false - карточки добавляются в .cards-list
  */
 export function createPetsCards(indexArr, position, newList = true) {
