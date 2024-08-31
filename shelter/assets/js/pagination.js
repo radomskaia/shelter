@@ -156,7 +156,7 @@ function sortArrayWithUniqueNumbers(numsArray, required = 6, exist = 8) {
     }
 }
 
-export function createPetsCards(indexArr, position) {
+export function createPetsCards(indexArr, position, severalCards = true) {
     const createOneCard = (index) => {
         const petCard = document.createElement('li')
         petCard.classList.add("card-item")
@@ -167,7 +167,7 @@ export function createPetsCards(indexArr, position) {
         return petCard;
     }
 
-    if (indexArr.length > 1) {
+    if (severalCards) {
         let cardListBox, cardsList;
         if (position === 'pets-page') {
             cardsList = document.querySelector('.pets-page');

@@ -23,12 +23,12 @@ function checkScreenWidth() {
         while (currEl?.children.length > 0 && currEl?.children.length < numOfCards) {
             const additionalCard = petsArr.pop();
             currentCardsIndex.push(additionalCard);
-            createPetsCards([additionalCard], 'curr');
+            createPetsCards([additionalCard], 'curr', false);
         }
         while (lastEl?.children.length > 0 && lastEl?.children.length < numOfCards) {
             const additionalCard = petsArr.pop();
             lastCardsIndex.push(additionalCard);
-            createPetsCards([additionalCard], position)
+            createPetsCards([additionalCard], position, false)
         }
     }
 
