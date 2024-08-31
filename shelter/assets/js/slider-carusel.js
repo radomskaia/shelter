@@ -1,247 +1,191 @@
-import {createPetsCards, shuffleArray} from "./pagination.js";
+import {createPetsCards, shuffleArray, deletePetsCards} from "./pagination.js";
 
-export function sliderCarousel() {
-    const petsArr = Array.from({length: 8}, (_, i) => i)
-    shuffleArray(petsArr)
+// объявление глобальных переменных
+const btnRight = document.querySelector(".slider_btn-right");
+const btnLeft = document.querySelector(".slider_btn-left");
+let currentCardsIndex = [];
+let previousCardsIndex = [];
+let nextCardsIndex = [];
+let numOfCards, screenWidth, petsArr, showPrevCards, showNextCards, boxWidth;
 
-    const btnRight = document.querySelector(".slider_btn-right");
-    const btnLeft = document.querySelector(".slider_btn-left");
-    const cardsBox = document.querySelectorAll('.cards-list-box');
-
-    let currentCardsIndex = [];
-    let previousCardsIndex = [];
-    let nextCardsIndex = [];
-    let numOfCards = 3;
-    let screenWidth = document.documentElement.clientWidth;
-
-    function checkScreenWidth() {
-        // screenWidth = window.innerWidth;
-        screenWidth = document.documentElement.clientWidth;
-        const prevEl = document.querySelector('.prev');
-        const nextEl = document.querySelector('.next');
-        const currEl = document.querySelector('.curr');
-        const addCards = () => {
-            while (currEl.children.length > 0 && currEl.children.length < numOfCards) {
-                const additionalCard = petsArr.pop();
-                currentCardsIndex.push(additionalCard);
-                createPetsCards([additionalCard], 'curr');
-            }
-            while (prevEl.children.length > 0 && prevEl.children.length < numOfCards) {
-                const additionalCard = petsArr.pop();
-                previousCardsIndex.push(additionalCard);
-                createPetsCards([additionalCard], 'prev')
-            }
-
-            while (nextEl.children.length > 0 && nextEl.children.length < numOfCards) {
-                const additionalCard = petsArr.pop();
-                nextCardsIndex.push(additionalCard);
-                createPetsCards([additionalCard], 'next');
-            }
-        }
-
-        const removeCard = () => {
-            while (currEl.children.length > numOfCards) {
-                currEl.removeChild(currEl.lastElementChild);
-                petsArr.push(currentCardsIndex.pop())
-            }
-
-            while (prevEl.children.length > numOfCards) {
-                prevEl.removeChild(prevEl.lastElementChild);
-                petsArr.push(previousCardsIndex.pop())
-                // console.log('DELETE');
-            }
-
-            while (nextEl.children.length > numOfCards) {
-                nextEl.removeChild(nextEl.lastElementChild);
-                petsArr.push(nextCardsIndex.pop())
-            }
-            shuffleArray(petsArr)
-        }
-        if (screenWidth > 1077) {
-            numOfCards = 3;
-            addCards();
-            removeCard()
-        }
-
-        if (screenWidth <= 1077 && screenWidth > 576) {
-            numOfCards = 2;
-            addCards()
-            removeCard()
-        }
-
-        if (screenWidth <= 576) {
-            numOfCards = 1;
-            removeCard()
-        }
-
-
-        // console.log(numOfCards)
-        // console.log(nextCardsIndex, currentCardsIndex, previousCardsIndex, petsArr);
-        // console.log(nextCardsIndex, currentCardsIndex, previousCardsIndex, petsArr);
+function checkScreenWidth() {
+    screenWidth = document.documentElement.clientWidth;
+    boxWidth = document.querySelector('.cards-list-box').clientWidth;
+    const currEl = document.querySelector('.curr');
+    const lastEl = document.querySelector('.prev') || document.querySelector('.next');
+    let lastCardsIndex, position;
+    if (lastEl) {
+        position = lastEl.classList.contains('prev') ? 'prev' : 'next';
+        lastCardsIndex = position === 'prev' ? previousCardsIndex : nextCardsIndex;
     }
 
-    checkScreenWidth()
-
-    window.addEventListener('resize', checkScreenWidth)
-
-
-    for (let i = 0; i < numOfCards; i++) {
-        currentCardsIndex.push(petsArr.pop());
-    }
-
-    createPetsCards(currentCardsIndex, 'curr')
-
-    function deletePetsCards(position) {
-        position = position === 'next' ? 'prev' : 'next';
-        const element = document.querySelector(`.${position}`)
-        while (element.firstChild) {
-            element.removeChild(element.firstChild);
+    const addCards = () => {
+        while (currEl?.children.length > 0 && currEl?.children.length < numOfCards) {
+            const additionalCard = petsArr.pop();
+            currentCardsIndex.push(additionalCard);
+            createPetsCards([additionalCard], 'curr');
+        }
+        while (lastEl?.children.length > 0 && lastEl?.children.length < numOfCards) {
+            const additionalCard = petsArr.pop();
+            lastCardsIndex.push(additionalCard);
+            createPetsCards([additionalCard], position)
         }
     }
 
-
-    function showNextCards(e) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
+    const removeCard = () => {
+        while (currEl?.children.length > numOfCards) {
+            currEl.removeChild(currEl.lastElementChild);
+            petsArr.push(currentCardsIndex.pop())
         }
-        const allCardsList = document.querySelectorAll('.cards-list');
-        const deleteBool = allCardsList.length > 1;
-        const prevEl = document.querySelector('.prev');
-        const nextEl = document.querySelector('.next');
-        const currEl = document.querySelector('.curr');
 
-        // возвращаем индексы из ненужной переменной и шафлим
-        for (let i = previousCardsIndex.length; i > 0; i--) {
-            petsArr.push(previousCardsIndex.pop())
+        while (lastEl?.children.length > numOfCards) {
+            lastEl.removeChild(lastEl.lastElementChild);
+            petsArr.push(lastCardsIndex.pop())
         }
         shuffleArray(petsArr)
+    }
+    if (screenWidth > 1077) {
+        numOfCards = 3;
+        addCards();
+    }
+    if (screenWidth <= 1077 && screenWidth > 576) {
+        numOfCards = 2;
+        addCards()
+        removeCard()
+    }
+    if (screenWidth <= 576) {
+        numOfCards = 1;
+        removeCard()
+    }
+}
 
-        // берем индексы для новой тройки, создаем карточки
-        if (nextCardsIndex.length === 0) {
-            for (let i = 0; i < numOfCards; i++) {
-                nextCardsIndex.push(petsArr.pop())
-            }
-            createPetsCards(nextCardsIndex, 'next')
+function showNewCards() {
+    const position = this;
+    const newPosition = position === 'next' ? 'prev' : 'next';
+    const currEl = document.querySelector('.curr');
+    let newIndexEl, lastIndexEl, startTranslateX, animationTranslateX, endTranslateX;
+    // определяем направление движение и массив для новых карточек
+    if (position === 'next') {
+        newIndexEl = nextCardsIndex;
+        lastIndexEl = previousCardsIndex;
+
+        if (document.querySelector(`.${newPosition}`)) {
+            startTranslateX = 'translateX(-110%)';
+            animationTranslateX = 'translateX(-220%)';
+            endTranslateX = 'translateX(-110%)';
+        } else {
+            startTranslateX = 'translateX(0)';
+            endTranslateX = 'translateX(-110%)';
+            animationTranslateX = endTranslateX;
         }
+    } else {
+        newIndexEl = previousCardsIndex;
+        lastIndexEl = nextCardsIndex;
+        startTranslateX = 'translateX(-110%)';
+        endTranslateX = 'translateX(0)';
+        animationTranslateX = endTranslateX;
+    }
 
-        // анимация
+    // возвращаем индексы из ненужной переменной и шафлим
+    for (let i = lastIndexEl.length; i > 0; i--) {
+        petsArr.push(lastIndexEl.pop())
+    }
+    shuffleArray(petsArr)
+
+    // берем индексы для новой тройки, создаем карточки
+    if (newIndexEl.length === 0) {
+        for (let i = 0; i < numOfCards; i++) {
+            newIndexEl.push(petsArr.pop())
+        }
+        createPetsCards(newIndexEl, position)
+    }
+
+    const allCardsList = document.querySelectorAll('.cards-list');
+    const newEl = document.querySelector(`.${position}`);
+
+    // задаем положение карточек до анимации
+    allCardsList.forEach((item) => {
+        item.style.transform = startTranslateX;
+    })
+
+
+    setTimeout(() => {
+        // анимация, перемещение карточек в нужную сторону
+        allCardsList.forEach((item) => {
+            item.style.transition = 'all 0.5s';
+            item.style.transform = animationTranslateX;
+        })
+
+        // выключаем кнопки на время анимации
+        btnLeft.disabled = true;
+        btnRight.disabled = true;
+        btnLeft.removeEventListener("click", showPrevCards)
+        btnRight.removeEventListener("click", showNextCards)
+
+        // таймер для удаления карточек после анимации
         setTimeout(() => {
-            btnLeft.disabled = true;
-            btnRight.disabled = true;
-            btnLeft.removeEventListener("click", showPrevCards)
-            btnRight.removeEventListener("click", showNextCards)
-
+            // убираем транзишн для незаметного изменения смены классов и положения
             allCardsList.forEach((item) => {
-                item.style.transition = 'all 0.5s';
-                item.style.transform = 'translateX(-110%)';
+                item.style.transition = '';
+                item.style.transform = endTranslateX;
             })
 
-            if (deleteBool) {
-                setTimeout(() => {
-                    allCardsList.forEach((item) => {
-                        item.style.transition = '';
-                    })
+            deletePetsCards(newPosition);
 
-                    deletePetsCards('next');
-                    nextEl.classList.remove('next');
-                    nextEl.classList.add('curr');
-                    currEl.classList.remove('curr');
-                    currEl.classList.add('prev');
-                    prevEl.classList.remove('prev');
-                    prevEl.classList.add('next');
+            // меняем классы
+            newEl.classList.remove(`${position}`);
+            newEl.classList.add('curr');
+            currEl.classList.remove('curr');
+            currEl.classList.add(`${newPosition}`);
 
-                    allCardsList.forEach((item) => {
-                        item.style.transform = `translateX(0)`;
-                    })
+            // включаем кнопки
+            btnLeft.disabled = false;
+            btnRight.disabled = false;
+            btnLeft.addEventListener("click", showPrevCards)
+            btnRight.addEventListener("click", showNextCards)
+        }, 500);
+    }, 20)
 
-                    // console.log(currEl);
-                    btnLeft.disabled = false;
-                    btnRight.disabled = false;
-                    btnLeft.addEventListener("click", showPrevCards)
-                    btnRight.addEventListener("click", showNextCards)
-                }, 500);
-            }
-        }, 2)
 
-        // обновляем переменные с индексами
+    // обновляем переменные с индексами
+    if (position === 'next') {
         previousCardsIndex = [...currentCardsIndex];
         currentCardsIndex = [...nextCardsIndex];
         nextCardsIndex = [];
-    }
-
-    function showPrevCards(e) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
-        }
-        const allCardsList = document.querySelectorAll('.cards-list');
-        const prevEl = document.querySelector('.prev');
-        const nextEl = document.querySelector('.next');
-        const currEl = document.querySelector('.curr');
-        const deleteBool = allCardsList.length > 1;
-        for (let i = nextCardsIndex.length; i > 0; i--) {
-            petsArr.push(nextCardsIndex.pop())
-        }
-        shuffleArray(petsArr)
-        if (previousCardsIndex.length === 0) {
-            for (let i = 0; i < numOfCards; i++) {
-                previousCardsIndex.push(petsArr.pop())
-            }
-            createPetsCards(previousCardsIndex, 'prev')
-        }
-
-
-        setTimeout(() => {
-            allCardsList.forEach((item) => {
-                item.style.transition = 'all 0.5s';
-                item.style.transform = 'translateX(110%)';
-            })
-
-            if (deleteBool) {
-                btnLeft.disabled = true;
-                btnRight.disabled = true;
-                btnLeft.removeEventListener("click", showPrevCards)
-                btnRight.removeEventListener("click", showNextCards)
-                setTimeout(() => {
-                    allCardsList.forEach((item) => {
-                        item.style.transition = '';
-                    })
-
-                    deletePetsCards('prev');
-                    prevEl.classList.remove('prev');
-                    prevEl.classList.add('curr');
-                    currEl.classList.remove('curr');
-                    currEl.classList.add('next');
-                    nextEl.classList.remove('next');
-                    nextEl.classList.add('prev');
-
-                    allCardsList.forEach((item) => {
-                        item.style.transform = `translateX(0)`;
-                    })
-
-
-                    btnLeft.disabled = false;
-                    btnRight.disabled = false;
-                    btnLeft.addEventListener("click", showPrevCards)
-                    btnRight.addEventListener("click", showNextCards)
-                }, 500);
-            }
-        }, 20)
-
-
-        // console.log(nextCardsIndex, currentCardsIndex, previousCardsIndex, petsArr);
+    } else {
         nextCardsIndex = [...currentCardsIndex];
         currentCardsIndex = [...previousCardsIndex];
         previousCardsIndex = [];
     }
+}
 
+export function sliderCarousel() {
+    petsArr = Array.from({length: 8}, (_, i) => i)
+    shuffleArray(petsArr)
+
+    // определяем количество карточек
+    checkScreenWidth()
+
+    // создаем первые карточки
+    for (let i = 0; i < numOfCards; i++) {
+        currentCardsIndex.push(petsArr.pop());
+    }
+    createPetsCards(currentCardsIndex, 'curr')
+
+
+    // связываем функцию с направлением для передачи в EventListener
+    showPrevCards = showNewCards.bind('prev');
+    showNextCards = showNewCards.bind('next');
+
+    // прослушиватели событий
+    window.addEventListener('resize', checkScreenWidth)
     btnLeft.addEventListener("click", showPrevCards)
     btnRight.addEventListener("click", showNextCards)
     document.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft' && btnLeft.disabled === false && btnRight.disabled === false) {
-            showNextCards()
-        }
-        if (e.key === 'ArrowRight' && btnLeft.disabled === false && btnRight.disabled === false) {
             showPrevCards()
+        } else if (e.key === 'ArrowRight' && btnLeft.disabled === false && btnRight.disabled === false) {
+            showNextCards()
         }
     });
 

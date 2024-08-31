@@ -2,13 +2,12 @@ import {pets} from './pagination.js';
 
 export function modalWindow(page) {
     let petsCardsBox;
-    if (page === 'main') {
+     if (page === 'main') {
         petsCardsBox = document.querySelector('.cards-list-box');
     } else {
         petsCardsBox = document.querySelector('.pets-page');
     }
     const modalWindowBox = document.querySelector('.modal-window-box');
-    // const petsCardsBox = document.querySelector('.cards-list-box');
     const petsAge = document.querySelector('.pets-age');
     const petsImg = document.querySelector('.modal-img');
     const petsName = document.querySelector('.pets-name');

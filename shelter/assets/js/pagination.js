@@ -157,16 +157,45 @@ function sortArrayWithUniqueNumbers(numsArray, required = 6, exist = 8) {
 }
 
 export function createPetsCards(indexArr, position) {
-    const cardsList = document.querySelector(`.${position}`);
-    indexArr.forEach((petIndex) => {
+    const createOneCard = (index) => {
         const petCard = document.createElement('li')
-        petCard.classList.add("card-item", 'page1')
-        petCard.setAttribute('data-index', petIndex)
-        petCard.innerHTML = `<img class="card_img" src="${pets[petIndex].img}" alt="Photo of pet">
-                        <h4 class="header_4">${pets[petIndex].name}</h4>
+        petCard.classList.add("card-item")
+        petCard.setAttribute('data-index', index)
+        petCard.innerHTML = `<img class="card_img" src="${pets[index].img}" alt="Photo of pet">
+                        <h4 class="header_4">${pets[index].name}</h4>
                         <button class="pets_btn">Learn more</button>`
-        cardsList.append(petCard)
-    })
+        return petCard;
+    }
+
+    if (indexArr.length > 1) {
+        let cardListBox, cardsList;
+        if (position === 'pets-page') {
+            cardsList = document.querySelector('.pets-page');
+        } else {
+            cardsList = document.createElement('ul');
+            cardsList.classList.add('cards-list', 'flex', `${position}`);
+            cardListBox = document.querySelector('.cards-list-box')
+            cardListBox.append(cardsList)
+        }
+        indexArr.forEach((petIndex) => {
+            const petCard = createOneCard(petIndex)
+            cardsList.append(petCard)
+        })
+    } else {
+        const cardsList = document.querySelector(`.${position}`);
+        cardsList.append(createOneCard(...indexArr))
+    }
+
+}
+
+export function deletePetsCards(position) {
+    if (position === 'pets-page') {
+        document.querySelector('.pets-page').innerHTML = '';
+    } else {
+        const element = document.querySelector(`.${position}`)
+        if (!element) return
+        element.remove()
+    }
 }
 
 export function pagination() {
@@ -209,7 +238,6 @@ export function pagination() {
     }
 
     function getCardsForPage() {
-        // e.preventDefault();
         if (this === 'next') offset += numOfCards;
         if (this === 'prev') offset -= numOfCards;
         if (this === 'curr') {
@@ -225,7 +253,7 @@ export function pagination() {
         if (this === 'last') offset = petsArr.length;
         // console.log('Offset after width change', offset)
 
-        document.querySelector('.pets-page').innerHTML = '';
+        deletePetsCards('pets-page');
         const indexArr = petsArr.slice((offset - numOfCards), offset);
         createPetsCards(indexArr, 'pets-page');
         page = offset / numOfCards;
