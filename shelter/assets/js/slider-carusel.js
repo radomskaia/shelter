@@ -131,8 +131,7 @@ function showNewCards() {
         btnLeft.removeEventListener("click", showPrevCards)
         btnRight.removeEventListener("click", showNextCards)
 
-        // таймер для удаления карточек после анимации
-        setTimeout(() => {
+        allCardsList[0].addEventListener('transitionend', () => {
             // убираем транзишн для незаметного изменения смены классов и положения
             allCardsList.forEach((item) => {
                 item.style.transition = '';
@@ -152,7 +151,7 @@ function showNewCards() {
             btnRight.disabled = false;
             btnLeft.addEventListener("click", showPrevCards)
             btnRight.addEventListener("click", showNextCards)
-        }, 500);
+        })
     }, 20)
 
 

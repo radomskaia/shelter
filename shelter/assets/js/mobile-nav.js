@@ -31,10 +31,11 @@ function closeMobileNav(e) {
         toggleMobileNav()
         const targetId = target.getAttribute('href');
         if (!targetId) return;
-        setTimeout(() => {
+        function smoothScroll() {
             if (targetId[0] === '#') document.querySelector(targetId).scrollIntoView({behavior: 'smooth'});
             else window.location.href = targetId;
-        }, 400);
+        }
+        burgerBtn.addEventListener('transitionend', smoothScroll, { once: true });
     }
 
     // закрываем при клике на свободную от меню зону
