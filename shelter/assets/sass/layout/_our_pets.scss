@@ -9,40 +9,37 @@
 }
 
 .cards-list {
-  @extend %flex;
-  justify-content: space-between;
-  //gap: clamp(4rem, 4vw, 8.9rem);
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .curr {
-  left: 0;
   //background-color: pink;
+  order: 2;
 }
 
 .prev {
-  left: -110%;
+  order: 1;
   //background-color: green;
 }
 
 .next {
-  left: 110%;
+  order: 3;
   //background-color: navy;
+
 }
 
 .cards-list-box {
-  position: relative;
-  @extend %flex;
+  display: flex;
   width: clamp(57rem, 76vw, 98.8rem);
+  //background-color: red;
   height: 43.5rem;
   overflow: hidden;
-  flex-wrap: nowrap;
+  gap: 10%;
 
-  & .cards-list {
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
 }
 
 .card-item {
@@ -58,20 +55,12 @@
 }
 
 @include respond(tab-land) {
-  //.cards-list {
-  //  gap: 4rem;
-  //}
-
   .card-box {
     gap: 1.2rem;
   }
 }
 
 @include respond(tab-port) {
-  //.card-item.page1:last-child {
-  //  display: none;
-  //}
-
   .cards-list {
     gap: 2.9rem;
     justify-content: center;
@@ -79,7 +68,6 @@
 
   .cards-list-box {
     width: 57rem
-
   }
 }
 
@@ -102,11 +90,6 @@
 }
 
 @include respond(phone) {
-  //.card-item.page1:nth-child(2) {
-  //  display: none;
-  //}
-
-
   .card-box {
     width: 27rem;
     gap: 7.8rem;

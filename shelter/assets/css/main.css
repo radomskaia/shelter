@@ -5,7 +5,7 @@
 }
 
 .start-section, .footer-contacts, .footer-list, .credit-card:link,
-.credit-card:visited, .help-list, .cards-list-box, .cards-list, .about-box, .btn_circle, .nav, .header-box, .flex {
+.credit-card:visited, .help-list, .about-box, .btn_circle, .nav, .header-box, .flex {
   display: flex;
   flex-wrap: wrap;
 }
@@ -223,7 +223,7 @@ body {
 }
 
 .start-section, .footer-contacts, .footer-list, .credit-card:link,
-.credit-card:visited, .help-list, .cards-list-box, .cards-list, .about-box, .btn_circle, .nav, .header-box, .flex {
+.credit-card:visited, .help-list, .about-box, .btn_circle, .nav, .header-box, .flex {
   display: flex;
   flex-wrap: wrap;
 }
@@ -285,7 +285,7 @@ body {
     justify-content: center;
     align-items: center;
     transform: translateX(100%);
-    transition: 0.5s;
+    transition: 0.4s;
   }
   .mobile-nav-box .mobile-nav_dark {
     background-color: #292929;
@@ -411,8 +411,7 @@ body {
   transition: all 0.2s;
 }
 
-.nav_link,
-.nav_link:active {
+.nav_link {
   border-bottom: 3px solid #F1CDB3;
 }
 
@@ -449,6 +448,10 @@ body {
   width: 30px;
   height: 30px;
   transition: all 0.5s;
+}
+
+.burger:hover {
+  cursor: pointer;
 }
 
 .burger-icon {
@@ -557,8 +560,7 @@ body {
 
 .logo:hover,
 .logo:active {
-  transform: scale(1.05);
-  filter: brightness(80%);
+  filter: brightness(130%);
 }
 
 .modal-window-box {
@@ -746,7 +748,7 @@ body {
 }
 
 .start-section, .footer-contacts, .footer-list, .credit-card:link,
-.credit-card:visited, .help-list, .cards-list-box, .cards-list, .about-box, .flex, .header-box, .nav, .btn_circle {
+.credit-card:visited, .help-list, .about-box, .flex, .header-box, .nav, .btn_circle {
   display: flex;
   flex-wrap: wrap;
 }
@@ -808,7 +810,7 @@ body {
     justify-content: center;
     align-items: center;
     transform: translateX(100%);
-    transition: 0.5s;
+    transition: 0.4s;
   }
   .mobile-nav-box .mobile-nav_dark {
     background-color: #292929;
@@ -958,33 +960,31 @@ body {
 }
 
 .cards-list {
-  justify-content: space-between;
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .curr {
-  left: 0;
+  order: 2;
 }
 
 .prev {
-  left: -110%;
+  order: 1;
 }
 
 .next {
-  left: 110%;
+  order: 3;
 }
 
 .cards-list-box {
-  position: relative;
+  display: flex;
   width: clamp(57rem, 76vw, 98.8rem);
   height: 43.5rem;
   overflow: hidden;
-  flex-wrap: nowrap;
-}
-.cards-list-box .cards-list {
-  position: absolute;
-  top: 0;
-  width: 100%;
+  gap: 10%;
 }
 
 .card-item {

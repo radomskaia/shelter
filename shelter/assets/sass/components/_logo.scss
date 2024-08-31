@@ -44,6 +44,6 @@
 //@todo Выяснить, почему на некоторых дисплеях анимация дерганная и пофиксить.
 .logo:hover,
 .logo:active {
-  transform: scale(1.05);
-  filter: brightness(80%);
+  //transform: scale(1.05);
+  filter: brightness(130%);
 }
