@@ -1,4 +1,4 @@
-import {createPetsCards, shuffleArray, deletePetsCards} from "./pagination.js";
+import {createPetsCards, shuffleArray, deletePetsCards} from "./utils.js";
 
 // объявление глобальных переменных
 const btnRight = document.querySelector(".slider_btn-right");
@@ -8,6 +8,10 @@ let previousCardsIndex = [];
 let nextCardsIndex = [];
 let numOfCards, screenWidth, petsArr, showPrevCards, showNextCards, boxWidth;
 
+/**
+ * Определение количество карточек, отображаемых на экране.
+ * Добавление/удаление карточек при изменении ширины экрана.
+ */
 function checkScreenWidth() {
     screenWidth = document.documentElement.clientWidth;
     boxWidth = document.querySelector('.cards-list-box').clientWidth;
@@ -59,6 +63,10 @@ function checkScreenWidth() {
     }
 }
 
+/**
+ * @param position может иметь значение 'next' или 'prev'
+ * Создает и показывает необходимое количество карточек, сохряняя одно предыдущее состояние
+ */
 function showNewCards() {
     const position = this;
     const newPosition = position === 'next' ? 'prev' : 'next';
@@ -71,8 +79,9 @@ function showNewCards() {
 
         if (document.querySelector(`.${newPosition}`)) {
             startTranslateX = 'translateX(-110%)';
+            endTranslateX = startTranslateX;
             animationTranslateX = 'translateX(-220%)';
-            endTranslateX = 'translateX(-110%)';
+
         } else {
             startTranslateX = 'translateX(0)';
             endTranslateX = 'translateX(-110%)';
@@ -159,6 +168,9 @@ function showNewCards() {
     }
 }
 
+/**
+ * Запускает работу бесконечного слайдера-карусели
+ */
 export function sliderCarousel() {
     petsArr = Array.from({length: 8}, (_, i) => i)
     shuffleArray(petsArr)
@@ -188,5 +200,4 @@ export function sliderCarousel() {
             showNextCards()
         }
     });
-
 }

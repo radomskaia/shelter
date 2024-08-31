@@ -285,7 +285,7 @@ body {
     justify-content: center;
     align-items: center;
     transform: translateX(100%);
-    transition: 0.5s;
+    transition: 0.4s;
   }
   .mobile-nav-box .mobile-nav_dark {
     background-color: #292929;
@@ -810,7 +810,7 @@ body {
     justify-content: center;
     align-items: center;
     transform: translateX(100%);
-    transition: 0.5s;
+    transition: 0.4s;
   }
   .mobile-nav-box .mobile-nav_dark {
     background-color: #292929;
