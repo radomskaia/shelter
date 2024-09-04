@@ -35,7 +35,7 @@
     height: 100vh;
     top: 0;
     right: 0;
-    backdrop-filter: brightness(100%);
+    //backdrop-filter: brightness(100%);
     transition: .4s;
     //opacity: 0;
     pointer-events: none;
@@ -76,7 +76,8 @@
   }
 
   .mobile-nav-box_active {
-    backdrop-filter: brightness(20%);
+    //backdrop-filter: brightness(20%);
+    background-color:  rgba(41, 41, 41, 0.6);
     //opacity: 1;
     //width: 100%;
     z-index: 998;
@@ -87,6 +88,7 @@
       transform: translateX(0);
     }
   }
+
 
 
 }

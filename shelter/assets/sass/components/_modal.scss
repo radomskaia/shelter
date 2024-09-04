@@ -7,7 +7,7 @@
   //backdrop-filter: brightness(60%);
   color: #000000;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: -1;
+  z-index: 989;
   opacity: 0;
   transition: .3s;
   pointer-events: none;
@@ -161,7 +161,6 @@
 .modal-window-box__active {
   pointer-events: auto;
   visibility: visible;
-  z-index: 989;
   opacity: 1;
 }
 

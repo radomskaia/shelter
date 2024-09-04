@@ -1,7 +1,7 @@
 .pets-box {
   @extend %flex-col;
   @extend %flex-center;
-  gap: 5.99rem;
+  gap: 2.89rem;
 }
 
 .card-box {
@@ -14,6 +14,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  padding: 3.1rem 0;
 }
 
 .curr {
@@ -36,7 +37,7 @@
   display: flex;
   width: clamp(57rem, 76vw, 98.8rem);
   //background-color: red;
-  height: 43.5rem;
+  //height: 43.5rem;
   overflow: hidden;
   gap: 10%;
 
@@ -72,6 +73,8 @@
 }
 
 @include respond(big-phone) {
+
+
   .card-box {
     row-gap: 6rem;
   }
@@ -99,6 +102,11 @@
   .pets-box {
     gap: 4.1rem;
   }
+
+  .cards-list {
+    padding: 0;
+  }
+
 
   .card-box .btn_circle:first-child {
     margin-right: 0;
