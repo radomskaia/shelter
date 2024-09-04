@@ -176,6 +176,14 @@ function showNewCards() {
     }
 }
 
+function keyMove(e) {
+    if (e.key === 'ArrowLeft' && btnLeft.disabled === false && btnRight.disabled === false) {
+        showPrevCards()
+    } else if (e.key === 'ArrowRight' && btnLeft.disabled === false && btnRight.disabled === false) {
+        showNextCards()
+    }
+}
+
 /**
  * Запускает работу бесконечного слайдера-карусели
  */
@@ -201,11 +209,5 @@ export function sliderCarousel() {
     window.addEventListener('resize', checkScreenWidth)
     btnLeft.addEventListener("click", showPrevCards)
     btnRight.addEventListener("click", showNextCards)
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft' && btnLeft.disabled === false && btnRight.disabled === false) {
-            showPrevCards()
-        } else if (e.key === 'ArrowRight' && btnLeft.disabled === false && btnRight.disabled === false) {
-            showNextCards()
-        }
-    });
+    document.addEventListener('keydown', keyMove);
 }
