@@ -130,6 +130,7 @@ function showNewCards() {
     const allCardsList = document.querySelectorAll('.cards-list');
     const newEl = document.querySelector(`.${position}`);
 
+
     // задаем положение карточек до анимации
     allCardsList.forEach((item) => {
         item.style.transform = startTranslateX;
@@ -143,7 +144,7 @@ function showNewCards() {
             item.style.transform = animationTranslateX;
         })
 
-        allCardsList[0].addEventListener('transitionend', () => {
+        allCardsList[allCardsList.length - 1].addEventListener('transitionend', () => {
             // убираем транзишн для незаметного изменения смены классов и положения
             allCardsList.forEach((item) => {
                 item.style.transition = '';
@@ -152,7 +153,6 @@ function showNewCards() {
 
             deletePetsCards(newPosition);
 
-            // меняем классы
             newEl.classList.remove(`${position}`);
             newEl.classList.add('curr');
             currEl.classList.remove('curr');
@@ -160,8 +160,8 @@ function showNewCards() {
 
             // включаем кнопки
             btnDisabled(false)
-        })
-    }, 20)
+        }, {once: true});
+    }, 100)
 
 
     // обновляем переменные с индексами
