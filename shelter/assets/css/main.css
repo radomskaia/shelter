@@ -268,7 +268,6 @@ body {
     height: 100vh;
     top: 0;
     right: 0;
-    backdrop-filter: brightness(100%);
     transition: 0.4s;
     pointer-events: none;
     visibility: hidden;
@@ -302,7 +301,7 @@ body {
     z-index: 888;
   }
   .mobile-nav-box_active {
-    backdrop-filter: brightness(20%);
+    background-color: rgba(41, 41, 41, 0.6);
     z-index: 998;
     pointer-events: auto;
     visibility: visible;
@@ -354,6 +353,7 @@ body {
   transition: all 0.2s;
 }
 
+.card-item:hover .pets_btn,
 .pets_btn:hover {
   cursor: pointer;
   background-color: #FDDCC4;
@@ -517,11 +517,6 @@ body {
   background-color: #FFFFFF;
   cursor: pointer;
 }
-.card-item:hover .button_secondary:link,
-.card-item:hover .button_secondary:visited {
-  background-color: #FDDCC4;
-  box-shadow: inset 0 0 0 2px #FDDCC4;
-}
 
 .logo:link,
 .logo:visited {
@@ -571,7 +566,7 @@ body {
   position: fixed;
   color: #000000;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: -1;
+  z-index: 989;
   opacity: 0;
   transition: 0.3s;
   pointer-events: none;
@@ -728,7 +723,6 @@ body {
 .modal-window-box__active {
   pointer-events: auto;
   visibility: visible;
-  z-index: 989;
   opacity: 1;
 }
 
@@ -793,7 +787,6 @@ body {
     height: 100vh;
     top: 0;
     right: 0;
-    backdrop-filter: brightness(100%);
     transition: 0.4s;
     pointer-events: none;
     visibility: hidden;
@@ -827,7 +820,7 @@ body {
     z-index: 888;
   }
   .mobile-nav-box_active {
-    backdrop-filter: brightness(20%);
+    background-color: rgba(41, 41, 41, 0.6);
     z-index: 998;
     pointer-events: auto;
     visibility: visible;
@@ -952,7 +945,7 @@ body {
   }
 }
 .pets-box {
-  gap: 5.99rem;
+  gap: 2.89rem;
 }
 
 .card-box {
@@ -965,6 +958,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  padding: 3.1rem 0;
 }
 
 .curr {
@@ -982,7 +976,6 @@ body {
 .cards-list-box {
   display: flex;
   width: clamp(57rem, 76vw, 98.8rem);
-  height: 43.5rem;
   overflow: hidden;
   gap: 10%;
 }
@@ -1034,6 +1027,9 @@ body {
   }
   .pets-box {
     gap: 4.1rem;
+  }
+  .cards-list {
+    padding: 0;
   }
   .card-box .btn_circle:first-child {
     margin-right: 0;
@@ -1278,7 +1274,7 @@ body {
   left: 0;
   width: 100%;
   height: 11.95rem;
-  z-index: 999;
+  z-index: 988;
 }
 
 .start-section {

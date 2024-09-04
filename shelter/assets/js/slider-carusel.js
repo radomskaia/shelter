@@ -63,11 +63,29 @@ function checkScreenWidth() {
     }
 }
 
+function btnDisabled(bool) {
+    btnLeft.disabled = bool;
+    btnRight.disabled = bool;
+    if (bool) {
+        btnLeft.removeEventListener("click", showPrevCards)
+        btnRight.removeEventListener("click", showNextCards)
+        document.removeEventListener('keydown', keyMove);
+    } else {
+        btnLeft.addEventListener("click", showPrevCards)
+        btnRight.addEventListener("click", showNextCards)
+        document.addEventListener('keydown', keyMove);
+    }
+}
+
+
 /**
  * @param position может иметь значение 'next' или 'prev'
  * Создает и показывает необходимое количество карточек, сохряняя одно предыдущее состояние
  */
 function showNewCards() {
+    // выключаем кнопки на время анимации
+    btnDisabled(true)
+
     const position = this;
     const newPosition = position === 'next' ? 'prev' : 'next';
     const currEl = document.querySelector('.curr');
@@ -112,6 +130,7 @@ function showNewCards() {
     const allCardsList = document.querySelectorAll('.cards-list');
     const newEl = document.querySelector(`.${position}`);
 
+
     // задаем положение карточек до анимации
     allCardsList.forEach((item) => {
         item.style.transform = startTranslateX;
@@ -125,13 +144,7 @@ function showNewCards() {
             item.style.transform = animationTranslateX;
         })
 
-        // выключаем кнопки на время анимации
-        btnLeft.disabled = true;
-        btnRight.disabled = true;
-        btnLeft.removeEventListener("click", showPrevCards)
-        btnRight.removeEventListener("click", showNextCards)
-
-        allCardsList[0].addEventListener('transitionend', () => {
+        allCardsList[allCardsList.length - 1].addEventListener('transitionend', () => {
             // убираем транзишн для незаметного изменения смены классов и положения
             allCardsList.forEach((item) => {
                 item.style.transition = '';
@@ -140,19 +153,15 @@ function showNewCards() {
 
             deletePetsCards(newPosition);
 
-            // меняем классы
             newEl.classList.remove(`${position}`);
             newEl.classList.add('curr');
             currEl.classList.remove('curr');
             currEl.classList.add(`${newPosition}`);
 
             // включаем кнопки
-            btnLeft.disabled = false;
-            btnRight.disabled = false;
-            btnLeft.addEventListener("click", showPrevCards)
-            btnRight.addEventListener("click", showNextCards)
-        })
-    }, 20)
+            btnDisabled(false)
+        }, {once: true});
+    }, 100)
 
 
     // обновляем переменные с индексами
@@ -164,6 +173,14 @@ function showNewCards() {
         nextCardsIndex = [...currentCardsIndex];
         currentCardsIndex = [...previousCardsIndex];
         previousCardsIndex = [];
+    }
+}
+
+function keyMove(e) {
+    if (e.key === 'ArrowLeft' && btnLeft.disabled === false && btnRight.disabled === false) {
+        showPrevCards()
+    } else if (e.key === 'ArrowRight' && btnLeft.disabled === false && btnRight.disabled === false) {
+        showNextCards()
     }
 }
 
@@ -192,11 +209,5 @@ export function sliderCarousel() {
     window.addEventListener('resize', checkScreenWidth)
     btnLeft.addEventListener("click", showPrevCards)
     btnRight.addEventListener("click", showNextCards)
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft' && btnLeft.disabled === false && btnRight.disabled === false) {
-            showPrevCards()
-        } else if (e.key === 'ArrowRight' && btnLeft.disabled === false && btnRight.disabled === false) {
-            showNextCards()
-        }
-    });
+    document.addEventListener('keydown', keyMove);
 }
